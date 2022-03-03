@@ -1,0 +1,55 @@
+
+.card {
+    padding: 2rem;
+    @include border;
+    width: $width;
+    height: $height;
+    overflow: hidden;
+    &:not(:last-child){
+        margin-right: $margin-right;
+    }
+    &--anim {
+        transform: translateX($wid-marg);
+        transition: transform 700ms $easing;
+    }
+    &__contents {
+        width: $width;
+        overflow: hidden;
+        &--anim {
+            transform: translateX($wid-marg*-1);
+            transition: transform 700ms $easing;
+        }
+    }
+    &__block {
+        overflow: hidden;
+        // a sass loop that iterates from 1 to 3, using the index 
+        // as a postfix for the --anim mod name 
+        // as well multiplier for the transition delay value 
+        @for $i from 1 through 3 {
+            &--anim-#{$i} {
+                transform: translateX(-108%);
+                transition: transform 500ms $easing 50ms*$i;
+            }
+        }
+        &:not(:first-child) {
+            margin-top: 1rem;
+        }
+    }
+}
+
+.btn4 {
+    @include border;
+    @include btn;
+    &--reveal {
+        &:hover {
+            & + .card {
+                &--anim {
+                    transform: translateX(0);
+                }
+                .card__contents--anim {
+                    transform: translateX(0);
+                }
+            }
+        }
+    }
+}

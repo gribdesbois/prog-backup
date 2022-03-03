@@ -1,0 +1,60 @@
+$colour-secondary: #466be4;
+$colour-primary: complement($colour-secondary);
+$colour-accent: #21cfa4;
+$colour-white: #fff;
+$colour-invalid: #DB464B;
+
+$heading-shadow-size: .55rem;
+$layout-margin: 6rem;
+$grid-gutter: $layout-margin * .25;
+
+$cd-txt: #6300a0;
+$cd-txt--invalid: #21cfa4;
+$cd-danger: #08080a;
+$cd-box: #32A852;
+$ball-size: 20px;
+$cd-secondary: #11ee23cb;
+
+@keyframes progress-bar{
+    0% {
+        transform: scaleX(0);
+        opacity: .5;
+    }
+    17% {
+        transform: scaleX(.18);
+    }
+    24% {
+        transform: scaleX(.4);
+    }
+    46% {
+        transform: scaleX(.81);
+    }
+    85%,100% {
+        opacity: 1;
+    }
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+@keyframes prog-bar{
+    0% {
+        transform: scaleX(0);
+        opacity: .1;
+    }
+    17% {
+        transform: scaleX(.18);
+    }
+    24% {
+        transform: scaleX(.4);
+    }
+    46% {
+        transform: scaleX(.81);
+    }
+    85%,100% {
+        opacity: 1;
+    }
+    100% {
+        transform: scaleX(1);
+    }
+}

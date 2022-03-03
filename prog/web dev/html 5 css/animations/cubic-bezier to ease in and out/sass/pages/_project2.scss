@@ -1,0 +1,79 @@
+
+.btn2 {
+    &:hover {
+        & + .progress {
+            & > .progress__bar {
+                transform: scaleX(1);
+            }
+        }
+        ~ .boxes {
+            & > .boxes--rotDegrees {
+                transform-origin:left;
+                transform: rotate(0deg);
+            }
+            & > .boxes--rotTurns {
+                transform-origin: right;
+                transform: rotate(0turn);
+            }
+        }
+    }
+}
+
+.progress {
+    &__bar {
+        transform-origin: 0%;
+        background-color: $cd-secondary;
+        padding: 2rem;
+        transform: scaleX(0);
+        transition: transform 1000ms cubic-bezier(.32,0,.07,1);
+    }
+}
+
+.boxes {
+    &--rotDegrees {
+        background: green;
+        transform: rotate(360deg);
+        transition: transform 1000ms ease-in-out;
+    }
+    &--rotTurns {
+        background: pink;
+        transform: rotate(-1turn);
+        transition: transform 1200ms ease-in-out;
+    }
+}
+/*
+.box2 {
+    &--perspective75px {
+        transform: perspective(75px) rotateX(45deg);
+    }
+    &--perspective150px {
+        transform: perspective(150px) rotateX(45deg);
+    }
+    &--perspective300px {
+        transform: perspective(300px) rotateX(45deg);
+    }
+}*/
+.btn3 {
+    @include btn;
+    perspective: 500px;
+    &:active {
+        & > .btn3__flip {
+            background: green;
+            transform: rotateX(-90deg);
+        }
+    }
+    &__flip {
+        background: red;
+        transform-style: preserve-3d;
+        transform-origin: center bottom 7.5vw;
+        transition: transform 500ms cubic-bezier(.7, 0, .23, 1);
+        &--off {
+            background: #14eb14;
+            transform: rotateX(0deg) translateZ(7.5vw);
+        }
+        &--on {
+            background: grey;
+            transform: rotateX(90deg) translateZ(7.5vw);
+        }
+    }
+}

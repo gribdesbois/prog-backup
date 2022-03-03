@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html ng-app="CodeApp" xmlns:fb="http://ogp.me/ns/fb#" xmlns:og="http://ogp.me/ns#" class="ng-scope" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><style id="ace-twilight">.ace-twilight .ace_gutter {background: #232323;color: #E2E2E2}.ace-twilight .ace_print-margin {width: 1px;background: #232323}.ace-twilight {background-color: #141414;color: #F8F8F8}.ace-twilight .ace_cursor {color: #A7A7A7}.ace-twilight .ace_marker-layer .ace_selection {background: rgba(221, 240, 255, 0.20)}.ace-twilight.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px 0px #141414;}.ace-twilight .ace_marker-layer .ace_step {background: rgb(102, 82, 0)}.ace-twilight .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid rgba(255, 255, 255, 0.25)}.ace-twilight .ace_marker-layer .ace_active-line {background: rgba(255, 255, 255, 0.031)}.ace-twilight .ace_gutter-active-line {background-color: rgba(255, 255, 255, 0.031)}.ace-twilight .ace_marker-layer .ace_selected-word {border: 1px solid rgba(221, 240, 255, 0.20)}.ace-twilight .ace_invisible {color: rgba(255, 255, 255, 0.25)}.ace-twilight .ace_keyword,.ace-twilight .ace_meta {color: #CDA869}.ace-twilight .ace_constant,.ace-twilight .ace_constant.ace_character,.ace-twilight .ace_constant.ace_character.ace_escape,.ace-twilight .ace_constant.ace_other,.ace-twilight .ace_heading,.ace-twilight .ace_markup.ace_heading,.ace-twilight .ace_support.ace_constant {color: #CF6A4C}.ace-twilight .ace_invalid.ace_illegal {color: #F8F8F8;background-color: rgba(86, 45, 86, 0.75)}.ace-twilight .ace_invalid.ace_deprecated {text-decoration: underline;font-style: italic;color: #D2A8A1}.ace-twilight .ace_support {color: #9B859D}.ace-twilight .ace_fold {background-color: #AC885B;border-color: #F8F8F8}.ace-twilight .ace_support.ace_function {color: #DAD085}.ace-twilight .ace_list,.ace-twilight .ace_markup.ace_list,.ace-twilight .ace_storage {color: #F9EE98}.ace-twilight .ace_entity.ace_name.ace_function,.ace-twilight .ace_meta.ace_tag,.ace-twilight .ace_variable {color: #AC885B}.ace-twilight .ace_string {color: #8F9D6A}.ace-twilight .ace_string.ace_regexp {color: #E9C062}.ace-twilight .ace_comment {font-style: italic;color: #5F5A60}.ace-twilight .ace_variable {color: #7587A6}.ace-twilight .ace_xml-pe {color: #494949}.ace-twilight .ace_indent-guide {background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAEklEQVQImWMQERFpYLC1tf0PAAgOAnPnhxyiAAAAAElFTkSuQmCC) right repeat-y}
+/*# sourceURL=ace/css/ace-twilight */</style><style class="darkreader darkreader--sync" media="screen"></style><style type="text/css">[uib-typeahead-popup].dropdown-menu{display:block;}</style><style class="darkreader darkreader--sync" media="screen"></style><style type="text/css">.uib-time input{width:50px;}</style><style class="darkreader darkreader--sync" media="screen"></style><style type="text/css">[uib-tooltip-popup].tooltip.top-left > .tooltip-arrow,[uib-tooltip-popup].tooltip.top-right > .tooltip-arrow,[uib-tooltip-popup].tooltip.bottom-left > .tooltip-arrow,[uib-tooltip-popup].tooltip.bottom-right > .tooltip-arrow,[uib-tooltip-popup].tooltip.left-top > .tooltip-arrow,[uib-tooltip-popup].tooltip.left-bottom > .tooltip-arrow,[uib-tooltip-popup].tooltip.right-top > .tooltip-arrow,[uib-tooltip-popup].tooltip.right-bottom > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.top-left > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.top-right > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.bottom-left > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.bottom-right > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.left-top > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.left-bottom > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.right-top > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.right-bottom > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.top-left > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.top-right > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.bottom-left > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.bottom-right > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.left-top > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.left-bottom > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.right-top > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.right-bottom > .tooltip-arrow,[uib-popover-popup].popover.top-left > .arrow,[uib-popover-popup].popover.top-right > .arrow,[uib-popover-popup].popover.bottom-left > .arrow,[uib-popover-popup].popover.bottom-right > .arrow,[uib-popover-popup].popover.left-top > .arrow,[uib-popover-popup].popover.left-bottom > .arrow,[uib-popover-popup].popover.right-top > .arrow,[uib-popover-popup].popover.right-bottom > .arrow,[uib-popover-html-popup].popover.top-left > .arrow,[uib-popover-html-popup].popover.top-right > .arrow,[uib-popover-html-popup].popover.bottom-left > .arrow,[uib-popover-html-popup].popover.bottom-right > .arrow,[uib-popover-html-popup].popover.left-top > .arrow,[uib-popover-html-popup].popover.left-bottom > .arrow,[uib-popover-html-popup].popover.right-top > .arrow,[uib-popover-html-popup].popover.right-bottom > .arrow,[uib-popover-template-popup].popover.top-left > .arrow,[uib-popover-template-popup].popover.top-right > .arrow,[uib-popover-template-popup].popover.bottom-left > .arrow,[uib-popover-template-popup].popover.bottom-right > .arrow,[uib-popover-template-popup].popover.left-top > .arrow,[uib-popover-template-popup].popover.left-bottom > .arrow,[uib-popover-template-popup].popover.right-top > .arrow,[uib-popover-template-popup].popover.right-bottom > .arrow{top:auto;bottom:auto;left:auto;right:auto;margin:0;}[uib-popover-popup].popover,[uib-popover-html-popup].popover,[uib-popover-template-popup].popover{display:block !important;}</style><style class="darkreader darkreader--sync" media="screen"></style><style type="text/css">.uib-datepicker-popup.dropdown-menu{display:block;float:none;margin:0;}.uib-button-bar{padding:10px 9px 2px;}</style><style class="darkreader darkreader--sync" media="screen"></style><style type="text/css">.uib-position-measure{display:block !important;visibility:hidden !important;position:absolute !important;top:-9999px !important;left:-9999px !important;}.uib-position-scrollbar-measure{position:absolute !important;top:-9999px !important;width:50px !important;height:50px !important;overflow:scroll !important;}.uib-position-body-scrollbar-measure{overflow:scroll !important;}</style><style class="darkreader darkreader--sync" media="screen"></style><style type="text/css">.uib-datepicker .uib-title{width:100%;}.uib-day button,.uib-month button,.uib-year button{min-width:100%;}.uib-left,.uib-right{width:100%}</style><style class="darkreader darkreader--sync" media="screen"></style><style type="text/css">.ng-animate.item:not(.left):not(.right){-webkit-transition:0s ease-in-out left;transition:0s ease-in-out left}</style><style class="darkreader darkreader--sync" media="screen"></style><style id="autocompletion.css">.ace_editor.ace_autocomplete .ace_marker-layer .ace_active-line {    background-color: #CAD6FA;    z-index: 1;}.ace_dark.ace_editor.ace_autocomplete .ace_marker-layer .ace_active-line {    background-color: #3a674e;}.ace_editor.ace_autocomplete .ace_line-hover {    border: 1px solid #abbffe;    margin-top: -1px;    background: rgba(233,233,253,0.4);    position: absolute;    z-index: 2;}.ace_dark.ace_editor.ace_autocomplete .ace_line-hover {    border: 1px solid rgba(109, 150, 13, 0.8);    background: rgba(58, 103, 78, 0.62);}.ace_completion-meta {    opacity: 0.5;    margin: 0.9em;}.ace_completion-message {    color: blue;}.ace_editor.ace_autocomplete .ace_completion-highlight{    color: #2d69c7;}.ace_dark.ace_editor.ace_autocomplete .ace_completion-highlight{    color: #93ca12;}.ace_editor.ace_autocomplete {    width: 300px;    z-index: 200000;    border: 1px lightgray solid;    position: fixed;    box-shadow: 2px 3px 5px rgba(0,0,0,.2);    line-height: 1.4;    background: #fefefe;    color: #111;}.ace_dark.ace_editor.ace_autocomplete {    border: 1px #484747 solid;    box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.51);    line-height: 1.4;    background: #25282c;    color: #c1c1c1;}
+/*# sourceURL=ace/css/autocompletion.css */</style><style class="darkreader darkreader--sync" media="screen"></style><style>.ace_snippet-marker {    -moz-box-sizing: border-box;    box-sizing: border-box;    background: rgba(194, 193, 208, 0.09);    border: 1px dotted rgba(211, 208, 235, 0.62);    position: absolute;}</style><style class="darkreader darkreader--sync" media="screen"></style><style>    .error_widget_wrapper {        background: inherit;        color: inherit;        border:none    }    .error_widget {        border-top: solid 2px;        border-bottom: solid 2px;        margin: 5px 0;        padding: 10px 40px;        white-space: pre-wrap;    }    .error_widget.ace_error, .error_widget_arrow.ace_error{        border-color: #ff5a5a    }    .error_widget.ace_warning, .error_widget_arrow.ace_warning{        border-color: #F1D817    }    .error_widget.ace_info, .error_widget_arrow.ace_info{        border-color: #5a5a5a    }    .error_widget.ace_ok, .error_widget_arrow.ace_ok{        border-color: #5aaa5a    }    .error_widget_arrow {        position: absolute;        border: solid 5px;        border-top-color: transparent!important;        border-right-color: transparent!important;        border-left-color: transparent!important;        top: -5px;    }</style><style class="darkreader darkreader--sync" media="screen"></style><style id="ace-tm">.ace-tm .ace_gutter {background: #f0f0f0;color: #333;}.ace-tm .ace_print-margin {width: 1px;background: #e8e8e8;}.ace-tm .ace_fold {background-color: #6B72E6;}.ace-tm {background-color: #FFFFFF;color: black;}.ace-tm .ace_cursor {color: black;}.ace-tm .ace_invisible {color: rgb(191, 191, 191);}.ace-tm .ace_storage,.ace-tm .ace_keyword {color: blue;}.ace-tm .ace_constant {color: rgb(197, 6, 11);}.ace-tm .ace_constant.ace_buildin {color: rgb(88, 72, 246);}.ace-tm .ace_constant.ace_language {color: rgb(88, 92, 246);}.ace-tm .ace_constant.ace_library {color: rgb(6, 150, 14);}.ace-tm .ace_invalid {background-color: rgba(255, 0, 0, 0.1);color: red;}.ace-tm .ace_support.ace_function {color: rgb(60, 76, 114);}.ace-tm .ace_support.ace_constant {color: rgb(6, 150, 14);}.ace-tm .ace_support.ace_type,.ace-tm .ace_support.ace_class {color: rgb(109, 121, 222);}.ace-tm .ace_keyword.ace_operator {color: rgb(104, 118, 135);}.ace-tm .ace_string {color: rgb(3, 106, 7);}.ace-tm .ace_comment {color: rgb(76, 136, 107);}.ace-tm .ace_comment.ace_doc {color: rgb(0, 102, 255);}.ace-tm .ace_comment.ace_doc.ace_tag {color: rgb(128, 159, 191);}.ace-tm .ace_constant.ace_numeric {color: rgb(0, 0, 205);}.ace-tm .ace_variable {color: rgb(49, 132, 149);}.ace-tm .ace_xml-pe {color: rgb(104, 104, 91);}.ace-tm .ace_entity.ace_name.ace_function {color: #0000A2;}.ace-tm .ace_heading {color: rgb(12, 7, 255);}.ace-tm .ace_list {color:rgb(185, 6, 144);}.ace-tm .ace_meta.ace_tag {color:rgb(0, 22, 142);}.ace-tm .ace_string.ace_regex {color: rgb(255, 0, 0)}.ace-tm .ace_marker-layer .ace_selection {background: rgb(181, 213, 255);}.ace-tm.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px 0px white;}.ace-tm .ace_marker-layer .ace_step {background: rgb(252, 255, 0);}.ace-tm .ace_marker-layer .ace_stack {background: rgb(164, 229, 101);}.ace-tm .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid rgb(192, 192, 192);}.ace-tm .ace_marker-layer .ace_active-line {background: rgba(0, 0, 0, 0.07);}.ace-tm .ace_gutter-active-line {background-color : #dcdcdc;}.ace-tm .ace_marker-layer .ace_selected-word {background: rgb(250, 250, 255);border: 1px solid rgb(200, 200, 250);}.ace-tm .ace_indent-guide {background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAE0lEQVQImWP4////f4bLly//BwAmVgd1/w11/gAAAABJRU5ErkJggg==") right repeat-y;}
+/*# sourceURL=ace/css/ace-tm */</style><style class="darkreader darkreader--sync" media="screen"></style><style id="ace_editor.css">.ace_br1 {border-top-left-radius    : 3px;}.ace_br2 {border-top-right-radius   : 3px;}.ace_br3 {border-top-left-radius    : 3px; border-top-right-radius:    3px;}.ace_br4 {border-bottom-right-radius: 3px;}.ace_br5 {border-top-left-radius    : 3px; border-bottom-right-radius: 3px;}.ace_br6 {border-top-right-radius   : 3px; border-bottom-right-radius: 3px;}.ace_br7 {border-top-left-radius    : 3px; border-top-right-radius:    3px; border-bottom-right-radius: 3px;}.ace_br8 {border-bottom-left-radius : 3px;}.ace_br9 {border-top-left-radius    : 3px; border-bottom-left-radius:  3px;}.ace_br10{border-top-right-radius   : 3px; border-bottom-left-radius:  3px;}.ace_br11{border-top-left-radius    : 3px; border-top-right-radius:    3px; border-bottom-left-radius:  3px;}.ace_br12{border-bottom-right-radius: 3px; border-bottom-left-radius:  3px;}.ace_br13{border-top-left-radius    : 3px; border-bottom-right-radius: 3px; border-bottom-left-radius:  3px;}.ace_br14{border-top-right-radius   : 3px; border-bottom-right-radius: 3px; border-bottom-left-radius:  3px;}.ace_br15{border-top-left-radius    : 3px; border-top-right-radius:    3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px;}.ace_editor {position: relative;overflow: hidden;padding: 0;font: 12px/normal 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;direction: ltr;text-align: left;-webkit-tap-highlight-color: rgba(0, 0, 0, 0);}.ace_scroller {position: absolute;overflow: hidden;top: 0;bottom: 0;background-color: inherit;-ms-user-select: none;-moz-user-select: none;-webkit-user-select: none;user-select: none;cursor: text;}.ace_content {position: absolute;box-sizing: border-box;min-width: 100%;contain: style size layout;font-variant-ligatures: no-common-ligatures;}.ace_dragging .ace_scroller:before{position: absolute;top: 0;left: 0;right: 0;bottom: 0;content: '';background: rgba(250, 250, 250, 0.01);z-index: 1000;}.ace_dragging.ace_dark .ace_scroller:before{background: rgba(0, 0, 0, 0.01);}.ace_selecting, .ace_selecting * {cursor: text !important;}.ace_gutter {position: absolute;overflow : hidden;width: auto;top: 0;bottom: 0;left: 0;cursor: default;z-index: 4;-ms-user-select: none;-moz-user-select: none;-webkit-user-select: none;user-select: none;contain: style size layout;}.ace_gutter-active-line {position: absolute;left: 0;right: 0;}.ace_scroller.ace_scroll-left {box-shadow: 17px 0 16px -16px rgba(0, 0, 0, 0.4) inset;}.ace_gutter-cell {position: absolute;top: 0;left: 0;right: 0;padding-left: 19px;padding-right: 6px;background-repeat: no-repeat;}.ace_gutter-cell.ace_error {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABOFBMVEX/////////QRswFAb/Ui4wFAYwFAYwFAaWGAfDRymzOSH/PxswFAb/SiUwFAYwFAbUPRvjQiDllog5HhHdRybsTi3/Tyv9Tir+Syj/UC3////XurebMBIwFAb/RSHbPx/gUzfdwL3kzMivKBAwFAbbvbnhPx66NhowFAYwFAaZJg8wFAaxKBDZurf/RB6mMxb/SCMwFAYwFAbxQB3+RB4wFAb/Qhy4Oh+4QifbNRcwFAYwFAYwFAb/QRzdNhgwFAYwFAbav7v/Uy7oaE68MBK5LxLewr/r2NXewLswFAaxJw4wFAbkPRy2PyYwFAaxKhLm1tMwFAazPiQwFAaUGAb/QBrfOx3bvrv/VC/maE4wFAbRPBq6MRO8Qynew8Dp2tjfwb0wFAbx6eju5+by6uns4uH9/f36+vr/GkHjAAAAYnRSTlMAGt+64rnWu/bo8eAA4InH3+DwoN7j4eLi4xP99Nfg4+b+/u9B/eDs1MD1mO7+4PHg2MXa347g7vDizMLN4eG+Pv7i5evs/v79yu7S3/DV7/498Yv24eH+4ufQ3Ozu/v7+y13sRqwAAADLSURBVHjaZc/XDsFgGIBhtDrshlitmk2IrbHFqL2pvXf/+78DPokj7+Fz9qpU/9UXJIlhmPaTaQ6QPaz0mm+5gwkgovcV6GZzd5JtCQwgsxoHOvJO15kleRLAnMgHFIESUEPmawB9ngmelTtipwwfASilxOLyiV5UVUyVAfbG0cCPHig+GBkzAENHS0AstVF6bacZIOzgLmxsHbt2OecNgJC83JERmePUYq8ARGkJx6XtFsdddBQgZE2nPR6CICZhawjA4Fb/chv+399kfR+MMMDGOQAAAABJRU5ErkJggg==");background-repeat: no-repeat;background-position: 2px center;}.ace_gutter-cell.ace_warning {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAmVBMVEX///8AAAD///8AAAAAAABPSzb/5sAAAAB/blH/73z/ulkAAAAAAAD85pkAAAAAAAACAgP/vGz/rkDerGbGrV7/pkQICAf////e0IsAAAD/oED/qTvhrnUAAAD/yHD/njcAAADuv2r/nz//oTj/p064oGf/zHAAAAA9Nir/tFIAAAD/tlTiuWf/tkIAAACynXEAAAAAAAAtIRW7zBpBAAAAM3RSTlMAABR1m7RXO8Ln31Z36zT+neXe5OzooRDfn+TZ4p3h2hTf4t3k3ucyrN1K5+Xaks52Sfs9CXgrAAAAjklEQVR42o3PbQ+CIBQFYEwboPhSYgoYunIqqLn6/z8uYdH8Vmdnu9vz4WwXgN/xTPRD2+sgOcZjsge/whXZgUaYYvT8QnuJaUrjrHUQreGczuEafQCO/SJTufTbroWsPgsllVhq3wJEk2jUSzX3CUEDJC84707djRc5MTAQxoLgupWRwW6UB5fS++NV8AbOZgnsC7BpEAAAAABJRU5ErkJggg==");background-position: 2px center;}.ace_gutter-cell.ace_info {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAAAAAA6mKC9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAJ0Uk5TAAB2k804AAAAPklEQVQY02NgIB68QuO3tiLznjAwpKTgNyDbMegwisCHZUETUZV0ZqOquBpXj2rtnpSJT1AEnnRmL2OgGgAAIKkRQap2htgAAAAASUVORK5CYII=");background-position: 2px center;}.ace_dark .ace_gutter-cell.ace_info {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAJFBMVEUAAAChoaGAgIAqKiq+vr6tra1ZWVmUlJSbm5s8PDxubm56enrdgzg3AAAAAXRSTlMAQObYZgAAAClJREFUeNpjYMAPdsMYHegyJZFQBlsUlMFVCWUYKkAZMxZAGdxlDMQBAG+TBP4B6RyJAAAAAElFTkSuQmCC");}.ace_scrollbar {contain: strict;position: absolute;right: 0;bottom: 0;z-index: 6;}.ace_scrollbar-inner {position: absolute;cursor: text;left: 0;top: 0;}.ace_scrollbar-v{overflow-x: hidden;overflow-y: scroll;top: 0;}.ace_scrollbar-h {overflow-x: scroll;overflow-y: hidden;left: 0;}.ace_print-margin {position: absolute;height: 100%;}.ace_text-input {position: absolute;z-index: 0;width: 0.5em;height: 1em;opacity: 0;background: transparent;-moz-appearance: none;appearance: none;border: none;resize: none;outline: none;overflow: hidden;font: inherit;padding: 0 1px;margin: 0 -1px;contain: strict;-ms-user-select: text;-moz-user-select: text;-webkit-user-select: text;user-select: text;white-space: pre!important;}.ace_text-input.ace_composition {background: transparent;color: inherit;z-index: 1000;opacity: 1;}.ace_composition_placeholder { color: transparent }.ace_composition_marker { border-bottom: 1px solid;position: absolute;border-radius: 0;margin-top: 1px;}[ace_nocontext=true] {transform: none!important;filter: none!important;clip-path: none!important;mask : none!important;contain: none!important;perspective: none!important;mix-blend-mode: initial!important;z-index: auto;}.ace_layer {z-index: 1;position: absolute;overflow: hidden;word-wrap: normal;white-space: pre;height: 100%;width: 100%;box-sizing: border-box;pointer-events: none;}.ace_gutter-layer {position: relative;width: auto;text-align: right;pointer-events: auto;height: 1000000px;contain: style size layout;}.ace_text-layer {font: inherit !important;position: absolute;height: 1000000px;width: 1000000px;contain: style size layout;}.ace_text-layer > .ace_line, .ace_text-layer > .ace_line_group {contain: style size layout;position: absolute;top: 0;left: 0;right: 0;}.ace_hidpi .ace_text-layer,.ace_hidpi .ace_gutter-layer,.ace_hidpi .ace_content,.ace_hidpi .ace_gutter {contain: strict;will-change: transform;}.ace_hidpi .ace_text-layer > .ace_line, .ace_hidpi .ace_text-layer > .ace_line_group {contain: strict;}.ace_cjk {display: inline-block;text-align: center;}.ace_cursor-layer {z-index: 4;}.ace_cursor {z-index: 4;position: absolute;box-sizing: border-box;border-left: 2px solid;transform: translatez(0);}.ace_multiselect .ace_cursor {border-left-width: 1px;}.ace_slim-cursors .ace_cursor {border-left-width: 1px;}.ace_overwrite-cursors .ace_cursor {border-left-width: 0;border-bottom: 1px solid;}.ace_hidden-cursors .ace_cursor {opacity: 0.2;}.ace_hasPlaceholder .ace_hidden-cursors .ace_cursor {opacity: 0;}.ace_smooth-blinking .ace_cursor {transition: opacity 0.18s;}.ace_animate-blinking .ace_cursor {animation-duration: 1000ms;animation-timing-function: step-end;animation-name: blink-ace-animate;animation-iteration-count: infinite;}.ace_animate-blinking.ace_smooth-blinking .ace_cursor {animation-duration: 1000ms;animation-timing-function: ease-in-out;animation-name: blink-ace-animate-smooth;}@keyframes blink-ace-animate {from, to { opacity: 1; }60% { opacity: 0; }}@keyframes blink-ace-animate-smooth {from, to { opacity: 1; }45% { opacity: 1; }60% { opacity: 0; }85% { opacity: 0; }}.ace_marker-layer .ace_step, .ace_marker-layer .ace_stack {position: absolute;z-index: 3;}.ace_marker-layer .ace_selection {position: absolute;z-index: 5;}.ace_marker-layer .ace_bracket {position: absolute;z-index: 6;}.ace_marker-layer .ace_error_bracket {position: absolute;border-bottom: 1px solid #DE5555;border-radius: 0;}.ace_marker-layer .ace_active-line {position: absolute;z-index: 2;}.ace_marker-layer .ace_selected-word {position: absolute;z-index: 4;box-sizing: border-box;}.ace_line .ace_fold {box-sizing: border-box;display: inline-block;height: 11px;margin-top: -2px;vertical-align: middle;background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAJCAYAAADU6McMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJpJREFUeNpi/P//PwOlgAXGYGRklAVSokD8GmjwY1wasKljQpYACtpCFeADcHVQfQyMQAwzwAZI3wJKvCLkfKBaMSClBlR7BOQikCFGQEErIH0VqkabiGCAqwUadAzZJRxQr/0gwiXIal8zQQPnNVTgJ1TdawL0T5gBIP1MUJNhBv2HKoQHHjqNrA4WO4zY0glyNKLT2KIfIMAAQsdgGiXvgnYAAAAASUVORK5CYII="),url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAA3CAYAAADNNiA5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACJJREFUeNpi+P//fxgTAwPDBxDxD078RSX+YeEyDFMCIMAAI3INmXiwf2YAAAAASUVORK5CYII=");background-repeat: no-repeat, repeat-x;background-position: center center, top left;color: transparent;border: 1px solid black;border-radius: 2px;cursor: pointer;pointer-events: auto;}.ace_dark .ace_fold {}.ace_fold:hover{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAJCAYAAADU6McMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJpJREFUeNpi/P//PwOlgAXGYGRklAVSokD8GmjwY1wasKljQpYACtpCFeADcHVQfQyMQAwzwAZI3wJKvCLkfKBaMSClBlR7BOQikCFGQEErIH0VqkabiGCAqwUadAzZJRxQr/0gwiXIal8zQQPnNVTgJ1TdawL0T5gBIP1MUJNhBv2HKoQHHjqNrA4WO4zY0glyNKLT2KIfIMAAQsdgGiXvgnYAAAAASUVORK5CYII="),url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAA3CAYAAADNNiA5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACBJREFUeNpi+P//fz4TAwPDZxDxD5X4i5fLMEwJgAADAEPVDbjNw87ZAAAAAElFTkSuQmCC");}.ace_tooltip {background-color: #FFF;background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.1));border: 1px solid gray;border-radius: 1px;box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);color: black;max-width: 100%;padding: 3px 4px;position: fixed;z-index: 999999;box-sizing: border-box;cursor: default;white-space: pre;word-wrap: break-word;line-height: normal;font-style: normal;font-weight: normal;letter-spacing: normal;pointer-events: none;}.ace_folding-enabled > .ace_gutter-cell {padding-right: 13px;}.ace_fold-widget {box-sizing: border-box;margin: 0 -12px 0 1px;display: none;width: 11px;vertical-align: top;background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAANElEQVR42mWKsQ0AMAzC8ixLlrzQjzmBiEjp0A6WwBCSPgKAXoLkqSot7nN3yMwR7pZ32NzpKkVoDBUxKAAAAABJRU5ErkJggg==");background-repeat: no-repeat;background-position: center;border-radius: 3px;border: 1px solid transparent;cursor: pointer;}.ace_folding-enabled .ace_fold-widget {display: inline-block;   }.ace_fold-widget.ace_end {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAANElEQVR42m3HwQkAMAhD0YzsRchFKI7sAikeWkrxwScEB0nh5e7KTPWimZki4tYfVbX+MNl4pyZXejUO1QAAAABJRU5ErkJggg==");}.ace_fold-widget.ace_closed {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAAGCAYAAAAG5SQMAAAAOUlEQVR42jXKwQkAMAgDwKwqKD4EwQ26sSOkVWjgIIHAzPiCgaqiqnJHZnKICBERHN194O5b9vbLuAVRL+l0YWnZAAAAAElFTkSuQmCCXA==");}.ace_fold-widget:hover {border: 1px solid rgba(0, 0, 0, 0.3);background-color: rgba(255, 255, 255, 0.2);box-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);}.ace_fold-widget:active {border: 1px solid rgba(0, 0, 0, 0.4);background-color: rgba(0, 0, 0, 0.05);box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);}.ace_dark .ace_fold-widget {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHklEQVQIW2P4//8/AzoGEQ7oGCaLLAhWiSwB146BAQCSTPYocqT0AAAAAElFTkSuQmCC");}.ace_dark .ace_fold-widget.ace_end {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAH0lEQVQIW2P4//8/AxQ7wNjIAjDMgC4AxjCVKBirIAAF0kz2rlhxpAAAAABJRU5ErkJggg==");}.ace_dark .ace_fold-widget.ace_closed {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAAHElEQVQIW2P4//+/AxAzgDADlOOAznHAKgPWAwARji8UIDTfQQAAAABJRU5ErkJggg==");}.ace_dark .ace_fold-widget:hover {box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);background-color: rgba(255, 255, 255, 0.1);}.ace_dark .ace_fold-widget:active {box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);}.ace_inline_button {border: 1px solid lightgray;display: inline-block;margin: -1px 8px;padding: 0 5px;pointer-events: auto;cursor: pointer;}.ace_inline_button:hover {border-color: gray;background: rgba(200,200,200,0.2);display: inline-block;pointer-events: auto;}.ace_fold-widget.ace_invalid {background-color: #FFB4B4;border-color: #DE5555;}.ace_fade-fold-widgets .ace_fold-widget {transition: opacity 0.4s ease 0.05s;opacity: 0;}.ace_fade-fold-widgets:hover .ace_fold-widget {transition: opacity 0.05s ease 0.05s;opacity:1;}.ace_underline {text-decoration: underline;}.ace_bold {font-weight: bold;}.ace_nobold .ace_bold {font-weight: normal;}.ace_italic {font-style: italic;}.ace_error-marker {background-color: rgba(255, 0, 0,0.2);position: absolute;z-index: 9;}.ace_highlight-marker {background-color: rgba(255, 255, 0,0.2);position: absolute;z-index: 8;}.ace_mobile-menu {position: absolute;line-height: 1.5;border-radius: 4px;-ms-user-select: none;-moz-user-select: none;-webkit-user-select: none;user-select: none;background: white;box-shadow: 1px 3px 2px grey;border: 1px solid #dcdcdc;color: black;}.ace_dark > .ace_mobile-menu {background: #333;color: #ccc;box-shadow: 1px 3px 2px grey;border: 1px solid #444;}.ace_mobile-button {padding: 2px;cursor: pointer;overflow: hidden;}.ace_mobile-button:hover {background-color: #eee;opacity:1;}.ace_mobile-button:active {background-color: #ddd;}.ace_placeholder {font-family: arial;transform: scale(0.9);transform-origin: left;white-space: pre;opacity: 0.7;margin: 0 10px;}
+/*# sourceURL=ace/css/ace_editor.css */</style><style class="darkreader darkreader--sync" media="screen"></style><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style><style class="darkreader darkreader--sync" media="screen"></style><style class="darkreader darkreader--fallback" media="screen"></style><style class="darkreader darkreader--text" media="screen"></style><style class="darkreader darkreader--invert" media="screen">.jfk-bubble.gtx-bubble, .captcheck_answer_label > input + img, embed[type="application/pdf"] {
+    filter: invert(100%) hue-rotate(180deg) contrast(90%) !important;
+}</style><style class="darkreader darkreader--inline" media="screen">[data-darkreader-inline-bgcolor] {
+  background-color: var(--darkreader-inline-bgcolor) !important;
+}
+[data-darkreader-inline-bgimage] {
+  background-image: var(--darkreader-inline-bgimage) !important;
+}
+[data-darkreader-inline-border] {
+  border-color: var(--darkreader-inline-border) !important;
+}
+[data-darkreader-inline-border-bottom] {
+  border-bottom-color: var(--darkreader-inline-border-bottom) !important;
+}
+[data-darkreader-inline-border-left] {
+  border-left-color: var(--darkreader-inline-border-left) !important;
+}
+[data-darkreader-inline-border-right] {
+  border-right-color: var(--darkreader-inline-border-right) !important;
+}
+[data-darkreader-inline-border-top] {
+  border-top-color: var(--darkreader-inline-border-top) !important;
+}
+[data-darkreader-inline-boxshadow] {
+  box-shadow: var(--darkreader-inline-boxshadow) !important;
+}
+[data-darkreader-inline-color] {
+  color: var(--darkreader-inline-color) !important;
+}
+[data-darkreader-inline-fill] {
+  fill: var(--darkreader-inline-fill) !important;
+}
+[data-darkreader-inline-stroke] {
+  stroke: var(--darkreader-inline-stroke) !important;
+}
+[data-darkreader-inline-outline] {
+  outline-color: var(--darkreader-inline-outline) !important;
+}
+[data-darkreader-inline-stopcolor] {
+  stop-color: var(--darkreader-inline-stopcolor) !important;
+}</style><style class="darkreader darkreader--variables" media="screen">:root {
+   --darkreader-neutral-background: #131516;
+   --darkreader-neutral-text: #d8d4cf;
+   --darkreader-selection-background: #004daa;
+   --darkreader-selection-text: #e8e6e3;
+}</style><script type="text/javascript" async="" id="inspsync" src="49MoEjeK-Hn9N6l-WLhRXQ_data/inspectlet.js"></script><script id="twitter-wjs" src="49MoEjeK-Hn9N6l-WLhRXQ_data/widgets.js"></script><script async="" src="analytics.js"></script><script type="text/javascript" async="" src="49MoEjeK-Hn9N6l-WLhRXQ_data/heap-1680397002.js"></script><script type="text/javascript" async="" src="49MoEjeK-Hn9N6l-WLhRXQ_data/mixpanel-2-latest.js"></script><script async="" src="49MoEjeK-Hn9N6l-WLhRXQ_data/gtm.js"></script><script class="darkreader darkreader--proxy">(function injectProxy() {
+        document.dispatchEvent(new CustomEvent('__darkreader__inlineScriptsAllowed'));
+        const addRuleDescriptor = Object.getOwnPropertyDescriptor(CSSStyleSheet.prototype, 'addRule');
+        const insertRuleDescriptor = Object.getOwnPropertyDescriptor(CSSStyleSheet.prototype, 'insertRule');
+        const deleteRuleDescriptor = Object.getOwnPropertyDescriptor(CSSStyleSheet.prototype, 'deleteRule');
+        const removeRuleDescriptor = Object.getOwnPropertyDescriptor(CSSStyleSheet.prototype, 'removeRule');
+        const cleanUp = () => {
+            Object.defineProperty(CSSStyleSheet.prototype, 'addRule', addRuleDescriptor);
+            Object.defineProperty(CSSStyleSheet.prototype, 'insertRule', insertRuleDescriptor);
+            Object.defineProperty(CSSStyleSheet.prototype, 'deleteRule', deleteRuleDescriptor);
+            Object.defineProperty(CSSStyleSheet.prototype, 'removeRule', removeRuleDescriptor);
+            document.removeEventListener('__darkreader__cleanUp', cleanUp);
+            document.removeEventListener('__darkreader__addUndefinedResolver', (e) => addUndefinedResolver(e));
+        };
+        const addUndefinedResolver = (e) => {
+            customElements.whenDefined(e.detail.tag).then(() => {
+                document.dispatchEvent(new CustomEvent('__darkreader__isDefined', { detail: { tag: e.detail.tag } }));
+            });
+        };
+        document.addEventListener('__darkreader__cleanUp', cleanUp);
+        document.addEventListener('__darkreader__addUndefinedResolver', (e) => addUndefinedResolver(e));
+        const updateSheetEvent = new Event('__darkreader__updateSheet');
+        function proxyAddRule(selector, style, index) {
+            addRuleDescriptor.value.call(this, selector, style, index);
+            if (this.ownerNode && !this.ownerNode.classList.contains('darkreader')) {
+                this.ownerNode.dispatchEvent(updateSheetEvent);
+            }
+            return -1;
+        }
+        function proxyInsertRule(rule, index) {
+            const returnValue = insertRuleDescriptor.value.call(this, rule, index);
+            if (this.ownerNode && !this.ownerNode.classList.contains('darkreader')) {
+                this.ownerNode.dispatchEvent(updateSheetEvent);
+            }
+            return returnValue;
+        }
+        function proxyDeleteRule(index) {
+            deleteRuleDescriptor.value.call(this, index);
+            if (this.ownerNode && !this.ownerNode.classList.contains('darkreader')) {
+                this.ownerNode.dispatchEvent(updateSheetEvent);
+            }
+        }
+        function proxyRemoveRule(index) {
+            removeRuleDescriptor.value.call(this, index);
+            if (this.ownerNode && !this.ownerNode.classList.contains('darkreader')) {
+                this.ownerNode.dispatchEvent(updateSheetEvent);
+            }
+        }
+        Object.defineProperty(CSSStyleSheet.prototype, 'addRule', Object.assign({}, addRuleDescriptor, { value: proxyAddRule }));
+        Object.defineProperty(CSSStyleSheet.prototype, 'insertRule', Object.assign({}, insertRuleDescriptor, { value: proxyInsertRule }));
+        Object.defineProperty(CSSStyleSheet.prototype, 'deleteRule', Object.assign({}, deleteRuleDescriptor, { value: proxyDeleteRule }));
+        Object.defineProperty(CSSStyleSheet.prototype, 'removeRule', Object.assign({}, removeRuleDescriptor, { value: proxyRemoveRule }));
+    })()</script><style class="darkreader darkreader--user-agent" media="screen">input, textarea, select, button {
+    background-color: #181a1b;
+}
+html, body, input, textarea, select, button {
+    border-color: #736b5e;
+    color: #e8e6e3;
+}
+a {
+    color: #3391ff;
+}
+table {
+    border-color: #545b5e;
+}
+::placeholder {
+    color: #b2aba1;
+}
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+    background-color: #555b00 !important;
+    color: #e8e6e3 !important;
+}
+::-webkit-scrollbar {
+    background-color: #202324;
+    color: #aba499;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #454a4d;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: #575e62;
+}
+::-webkit-scrollbar-thumb:active {
+    background-color: #484e51;
+}
+::-webkit-scrollbar-corner {
+    background-color: #181a1b;
+}
+* {
+    scrollbar-color: #202324 #454a4d;
+}
+::selection {
+    background-color: #004daa !important;
+    color: #e8e6e3 !important;
+}
+::-moz-selection {
+    background-color: #004daa !important;
+    color: #e8e6e3 !important;
+}</style>
+<!-- base href="https://paiza.io/" -->
+<meta charset="utf-8">
+<meta content="IE=Edge,chrome=1" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<meta content="UOKWL9FDreUe8Z9juyL7NBjLaTNPluL1n3Zw7n9HLLI" name="google-site-verification">
+<meta content="Online editor and compiler" property="og:title">
+<meta content="website" property="og:type">
+<meta content="Paiza.IO is online editor and compiler. Java, Ruby, Python, PHP, Perl, Swift, JavaScript... You can use for learning programming, scraping web sites, or writing batch" property="og:description">
+<meta content="https://paiza.IO/" property="og:url">
+<meta content="https://paiza.io/assets/movie_title-aed88df2f448c0d69598876d1262bdc0.png" property="og:image">
+<meta content="!" name="fragment">
+<link rel="shortcut icon" type="image/x-icon" href="https://paiza.io/images/favicon.ico">
+<title ng-bind-template="JavaScript Online | Online editor and compiler" class="ng-binding">JavaScript Online | Online editor and compiler</title>
+<meta content="Paiza.IO is online editor and compiler. Java, Ruby, Python, PHP, Perl, Swift, JavaScript... You can use for learning programming, scraping web sites, or writing batch" name="description">
+<meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="RCfKcnm02NoLPZGQrC8qCCcXp+mGQcsWJea5XVfLkY6kaUNlxeo0YMSOdycCse3KPNgjWuiICbauE+WgV5LLpA==">
+<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+<!--[if lt IE 9]>
+<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"></script>
+<![endif]-->
+<!-- = stylesheet_link_tag "http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" -->
+<!-- = stylesheet_link_tag "http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" -->
+<link rel="stylesheet" media="all" href="49MoEjeK-Hn9N6l-WLhRXQ_data/application-5938a66c1d27e515c69b5132a479eefe.css"><style class="darkreader darkreader--sync" media="screen"></style>
+<link rel="apple-touch-icon-precomposed" type="image/png" href="https://paiza.io/images/apple-touch-icon-144x144-precomposed.png" sizes="144x144">
+<link rel="apple-touch-icon-precomposed" type="image/png" href="https://paiza.io/images/apple-touch-icon-114x114-precomposed.png" sizes="114x114">
+<link rel="apple-touch-icon-precomposed" type="image/png" href="https://paiza.io/images/apple-touch-icon-72x72-precomposed.png" sizes="72x72">
+<link rel="apple-touch-icon-precomposed" type="image/png" href="https://paiza.io/images/apple-touch-icon-precomposed.png">
+<link rel="shortcut icon" type="image/x-icon" href="https://paiza.io/images/favicon.ico">
+<!-- Load jQuery before AngularJS to use jQuery with AngularJS -->
+<script src="49MoEjeK-Hn9N6l-WLhRXQ_data/jquery-ccdc624a8843d58f3ce83ba0e8835749.js"></script><meta name="darkreader" content="68e9c2715ad9966e560a3081d50c312c"><style class="darkreader darkreader--override" media="screen">.vimvixen-hint {
+    background-color: #7b5300 !important;
+    border-color: #d8b013 !important;
+    color: #f3e8c8 !important;
+}
+::placeholder {
+    opacity: 0.5 !important;
+}</style>
+<!-- AngularJS modules -->
+<script src="49MoEjeK-Hn9N6l-WLhRXQ_data/angular.js"></script>
+<script src="49MoEjeK-Hn9N6l-WLhRXQ_data/angular-messages.js"></script>
+<script src="49MoEjeK-Hn9N6l-WLhRXQ_data/angular-cookies.js"></script>
+<script src="49MoEjeK-Hn9N6l-WLhRXQ_data/angular-resource.js"></script>
+<script src="49MoEjeK-Hn9N6l-WLhRXQ_data/angular-route.js"></script>
+<script src="49MoEjeK-Hn9N6l-WLhRXQ_data/angular-animate.js"></script>
+<script src="49MoEjeK-Hn9N6l-WLhRXQ_data/angular-sanitize.js"></script>
+<script src="49MoEjeK-Hn9N6l-WLhRXQ_data/angular-touch.js"></script>
+<script src="49MoEjeK-Hn9N6l-WLhRXQ_data/angular-locale_en-us.js"></script>
+<script src="49MoEjeK-Hn9N6l-WLhRXQ_data/en-us-309108e8d2ae20c9fdbd311f4a2ccf6e.js"></script>
+<script src="49MoEjeK-Hn9N6l-WLhRXQ_data/ng-infinite-scroll-9ffd426b56bb40f60dc9951c822d5da8.js"></script>
+<script src="49MoEjeK-Hn9N6l-WLhRXQ_data/angularLocalStorage-2cf1e31d1faff838bc8f6a1e8a2459b0.js"></script>
+<script src="49MoEjeK-Hn9N6l-WLhRXQ_data/angular-ui-utils.js"></script>
+<link rel="stylesheet" media="screen" href="49MoEjeK-Hn9N6l-WLhRXQ_data/owl_002.css"><style class="darkreader darkreader--cors" media="screen">.owl-carousel .owl-wrapper:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+
+.owl-carousel{
+	display: none;
+	position: relative;
+	width: 100%;
+	-ms-touch-action: pan-y;
+}
+.owl-carousel .owl-wrapper{
+	display: none;
+	position: relative;
+	-webkit-transform: translate3d(0px, 0px, 0px);
+}
+.owl-carousel .owl-wrapper-outer{
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+}
+.owl-carousel .owl-wrapper-outer.autoHeight{
+	-webkit-transition: height 500ms ease-in-out;
+	-moz-transition: height 500ms ease-in-out;
+	-ms-transition: height 500ms ease-in-out;
+	-o-transition: height 500ms ease-in-out;
+	transition: height 500ms ease-in-out;
+}
+	
+.owl-carousel .owl-item{
+	float: left;
+}
+.owl-controls .owl-page,
+.owl-controls .owl-buttons div{
+	cursor: pointer;
+}
+.owl-controls {
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+
+.grabbing { 
+    cursor:url("https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.2/grabbing.png") 8 8, move;
+}
+
+
+.owl-carousel  .owl-wrapper,
+.owl-carousel  .owl-item{
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility:    hidden;
+	-ms-backface-visibility:     hidden;
+  -webkit-transform: translate3d(0,0,0);
+  -moz-transform: translate3d(0,0,0);
+  -ms-transform: translate3d(0,0,0);
+}</style><style class="darkreader darkreader--sync" media="screen"></style>
+<link rel="stylesheet" media="screen" href="49MoEjeK-Hn9N6l-WLhRXQ_data/owl.css"><style class="darkreader darkreader--cors" media="screen">.owl-theme .owl-controls{
+	margin-top: 10px;
+	text-align: center;
+}
+
+
+
+.owl-theme .owl-controls .owl-buttons div{
+	color: #FFF;
+	display: inline-block;
+	zoom: 1;
+	*display: inline;
+	margin: 5px;
+	padding: 3px 10px;
+	font-size: 12px;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	border-radius: 30px;
+	background: #869791;
+	filter: Alpha(Opacity=50);
+	opacity: 0.5;
+}
+
+
+.owl-theme .owl-controls.clickable .owl-buttons div:hover{
+	filter: Alpha(Opacity=100);
+	opacity: 1;
+	text-decoration: none;
+}
+
+
+
+.owl-theme .owl-controls .owl-page{
+	display: inline-block;
+	zoom: 1;
+	*display: inline;
+}
+.owl-theme .owl-controls .owl-page span{
+	display: block;
+	width: 12px;
+	height: 12px;
+	margin: 5px 7px;
+	filter: Alpha(Opacity=50);
+	opacity: 0.5;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+	background: #869791;
+}
+
+.owl-theme .owl-controls .owl-page.active span,
+.owl-theme .owl-controls.clickable .owl-page:hover span{
+	filter: Alpha(Opacity=100);
+	opacity: 1;
+}
+
+
+
+.owl-theme .owl-controls .owl-page span.owl-numbers{
+	height: auto;
+	width: auto;
+	color: #FFF;
+	padding: 2px 10px;
+	font-size: 12px;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	border-radius: 30px;
+}
+
+
+.owl-item.loading{
+	min-height: 150px;
+	background: url("https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.2/AjaxLoader.gif") no-repeat center center
+}</style><style class="darkreader darkreader--sync" media="screen"></style>
+<script src="49MoEjeK-Hn9N6l-WLhRXQ_data/owl.js"></script>
+<!-- = javascript_include_tag "http://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.js" -->
+<!-- = javascript_include_tag "ui-bootstrap-tpls-0.11.0.js" -->
+<script src="49MoEjeK-Hn9N6l-WLhRXQ_data/ui-bootstrap-tpls-2.js"></script>
+<!-- = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js" -->
+<!-- = javascript_include_tag "//cdn.jsdelivr.net/ace/1.1.6/min/ace.js" -->
+<!-- = javascript_include_tag "//cdn.jsdelivr.net/ace/1.1.6/min/ext-language_tools.js" -->
+<!-- = javascript_include_tag "/js/ace-20151029/ace.js" -->
+<!-- = javascript_include_tag "/js/ace-20151029/ext-language_tools.js" -->
+<!-- = javascript_include_tag "/js/ace-20160316/ace.js" -->
+<!-- = javascript_include_tag "/js/ace-20160316/ext-language_tools.js" -->
+<script src="49MoEjeK-Hn9N6l-WLhRXQ_data/ace.js"></script>
+<script src="49MoEjeK-Hn9N6l-WLhRXQ_data/ext-language_tools.js"></script>
+<script src="49MoEjeK-Hn9N6l-WLhRXQ_data/ui-ace.js"></script>
+<link rel="stylesheet" media="screen" href="49MoEjeK-Hn9N6l-WLhRXQ_data/split-pane-42c9dd90cdb2c30bf18755cd8aab23c7.css"><style class="darkreader darkreader--sync" media="screen"></style>
+<script src="49MoEjeK-Hn9N6l-WLhRXQ_data/split-pane-332265058e7a5f1bb0cb15f0575b850a.js"></script>
+<script src="49MoEjeK-Hn9N6l-WLhRXQ_data/angular-split-pane-36c664f8ca5bf12036da29286b5719a6.js"></script>
+<script src="49MoEjeK-Hn9N6l-WLhRXQ_data/jquery.js"></script>
+<link rel="stylesheet" media="screen" href="49MoEjeK-Hn9N6l-WLhRXQ_data/jquery.css"><style class="darkreader darkreader--sync" media="screen"></style>
+<script src="49MoEjeK-Hn9N6l-WLhRXQ_data/loading-bar-189b0aad32706ebd8aed712c6479cd80.js"></script>
+<link rel="stylesheet" media="screen" href="49MoEjeK-Hn9N6l-WLhRXQ_data/loading-bar-3ac2926aed75deea6f717c371faf7dc5.css"><style class="darkreader darkreader--sync" media="screen"></style>
+<!-- = stylesheet_link_tag "http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" -->
+<!-- = javascript_include_tag "http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" -->
+<!-- = javascript_include_tag "http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js" -->
+<!-- = javascript_include_tag "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5417a9d527daa381" -->
+<script src="49MoEjeK-Hn9N6l-WLhRXQ_data/application-602c8630c871aa1e1904043f049e1c08.js"></script>
+<script src="49MoEjeK-Hn9N6l-WLhRXQ_data/togetherjs-min.js"></script>
+<!-- = javascript_include_tag "/js/togetherjs.js" -->
+<script src="49MoEjeK-Hn9N6l-WLhRXQ_data/sweet-alert.js"></script>
+<link rel="stylesheet" media="screen" href="49MoEjeK-Hn9N6l-WLhRXQ_data/sweet-alert.css"><style class="darkreader darkreader--cors" media="screen">.sweet-overlay{background-color:#000;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";background-color:rgba(0,0,0,.4);position:fixed;left:0;right:0;top:0;bottom:0;display:none;z-index:10000}.sweet-alert{background-color:#fff;font-family:'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;width:478px;padding:17px;border-radius:5px;text-align:center;position:fixed;left:50%;top:50%;margin-left:-256px;margin-top:-200px;overflow:hidden;display:none;z-index:99999}@media all and (max-width:540px){.sweet-alert{width:auto;margin-left:0;margin-right:0;left:15px;right:15px}}.sweet-alert h2{color:#575757;font-size:30px;text-align:center;font-weight:600;text-transform:none;position:relative;margin:25px 0;padding:0;line-height:40px;display:block}.sweet-alert p{color:#797979;font-size:16px;font-weight:300;position:relative;text-align:inherit;float:none;margin:0;padding:0;line-height:normal}.sweet-alert button{background-color:#AEDEF4;color:#fff;border:none;box-shadow:none;font-size:17px;font-weight:500;-webkit-border-radius:4px;border-radius:5px;padding:10px 32px;margin:26px 5px 0;cursor:pointer}.sweet-alert button:focus{outline:0;box-shadow:0 0 2px rgba(128,179,235,.5),inset 0 0 0 1px rgba(0,0,0,.05)}.sweet-alert button:hover{background-color:#a1d9f2}.sweet-alert button:active{background-color:#81ccee}.sweet-alert button.cancel{background-color:#D0D0D0}.sweet-alert button.cancel:hover{background-color:#c8c8c8}.sweet-alert button.cancel:active{background-color:#b6b6b6}.sweet-alert button.cancel:focus{box-shadow:rgba(197,205,211,.8) 0 0 2px,rgba(0,0,0,.0470588) 0 0 0 1px inset!important}.sweet-alert button::-moz-focus-inner{border:0}.sweet-alert[data-has-cancel-button=false] button{box-shadow:none!important}.sweet-alert[data-has-confirm-button=false][data-has-cancel-button=false]{padding-bottom:40px}.sweet-alert .sa-icon{width:80px;height:80px;border:4px solid gray;-webkit-border-radius:40px;border-radius:50%;margin:20px auto;padding:0;position:relative;box-sizing:content-box}.sweet-alert .sa-icon.sa-error{border-color:#F27474}.sweet-alert .sa-icon.sa-error .sa-x-mark{position:relative;display:block}.sweet-alert .sa-icon.sa-error .sa-line{position:absolute;height:5px;width:47px;background-color:#F27474;display:block;top:37px;border-radius:2px}.sweet-alert .sa-icon.sa-error .sa-line.sa-left{-webkit-transform:rotate(45deg);transform:rotate(45deg);left:17px}.sweet-alert .sa-icon.sa-error .sa-line.sa-right{-webkit-transform:rotate(-45deg);transform:rotate(-45deg);right:16px}.sweet-alert .sa-icon.sa-warning{border-color:#F8BB86}.sweet-alert .sa-icon.sa-warning .sa-body{position:absolute;width:5px;height:47px;left:50%;top:10px;-webkit-border-radius:2px;border-radius:2px;margin-left:-2px;background-color:#F8BB86}.sweet-alert .sa-icon.sa-warning .sa-dot{position:absolute;width:7px;height:7px;-webkit-border-radius:50%;border-radius:50%;margin-left:-3px;left:50%;bottom:10px;background-color:#F8BB86}.sweet-alert .sa-icon.sa-info{border-color:#C9DAE1}.sweet-alert .sa-icon.sa-info::before{content:"";position:absolute;width:5px;height:29px;left:50%;bottom:17px;border-radius:2px;margin-left:-2px;background-color:#C9DAE1}.sweet-alert .sa-icon.sa-info::after{content:"";position:absolute;width:7px;height:7px;border-radius:50%;margin-left:-3px;top:19px;background-color:#C9DAE1}.sweet-alert .sa-icon.sa-success{border-color:#A5DC86}.sweet-alert .sa-icon.sa-success::after,.sweet-alert .sa-icon.sa-success::before{content:'';position:absolute;width:60px;height:120px;background:#fff;-webkit-transform:rotate(45deg);transform:rotate(45deg)}.sweet-alert .sa-icon.sa-success::before{-webkit-border-radius:120px 0 0 120px;border-radius:120px 0 0 120px;top:-7px;left:-33px;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-transform-origin:60px 60px;transform-origin:60px 60px}.sweet-alert .sa-icon.sa-success::after{-webkit-border-radius:0 120px 120px 0;border-radius:0 120px 120px 0;top:-11px;left:30px;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-transform-origin:0 60px;transform-origin:0 60px}.sweet-alert .sa-icon.sa-success .sa-placeholder{width:80px;height:80px;border:4px solid rgba(165,220,134,.2);-webkit-border-radius:40px;border-radius:50%;box-sizing:content-box;position:absolute;left:-4px;top:-4px;z-index:2}.sweet-alert .sa-icon.sa-success .sa-fix{width:5px;height:90px;background-color:#fff;position:absolute;left:28px;top:8px;z-index:1;-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}.sweet-alert .sa-icon.sa-success .sa-line{height:5px;background-color:#A5DC86;display:block;border-radius:2px;position:absolute;z-index:2}.sweet-alert .sa-icon.sa-success .sa-line.sa-tip{width:25px;left:14px;top:46px;-webkit-transform:rotate(45deg);transform:rotate(45deg)}.sweet-alert .sa-icon.sa-success .sa-line.sa-long{width:47px;right:8px;top:38px;-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}.sweet-alert .sa-icon.sa-custom{background-size:contain;border-radius:0;border:none;background-position:center center;background-repeat:no-repeat}@-webkit-keyframes showSweetAlert{0%{transform:scale(.7);-webkit-transform:scale(.7)}45%{transform:scale(1.05);-webkit-transform:scale(1.05)}80%{transform:scale(.95);-webkit-tranform:scale(.95)}100%{transform:scale(1);-webkit-transform:scale(1)}}@keyframes showSweetAlert{0%{transform:scale(.7);-webkit-transform:scale(.7)}45%{transform:scale(1.05);-webkit-transform:scale(1.05)}80%{transform:scale(.95);-webkit-tranform:scale(.95)}100%{transform:scale(1);-webkit-transform:scale(1)}}@-webkit-keyframes hideSweetAlert{0%{transform:scale(1);-webkit-transform:scale(1)}100%{transform:scale(.5);-webkit-transform:scale(.5)}}@keyframes hideSweetAlert{0%{transform:scale(1);-webkit-transform:scale(1)}100%{transform:scale(.5);-webkit-transform:scale(.5)}}.showSweetAlert{-webkit-animation:showSweetAlert .3s;animation:showSweetAlert .3s}.showSweetAlert[data-animation=none]{-webkit-animation:none;animation:none}.hideSweetAlert{-webkit-animation:hideSweetAlert .2s;animation:hideSweetAlert .2s}.hideSweetAlert[data-animation=none]{-webkit-animation:none;animation:none}@-webkit-keyframes animateSuccessTip{0%,54%{width:0;left:1px;top:19px}70%{width:50px;left:-8px;top:37px}84%{width:17px;left:21px;top:48px}100%{width:25px;left:14px;top:45px}}@keyframes animateSuccessTip{0%,54%{width:0;left:1px;top:19px}70%{width:50px;left:-8px;top:37px}84%{width:17px;left:21px;top:48px}100%{width:25px;left:14px;top:45px}}@-webkit-keyframes animateSuccessLong{0%,65%{width:0;right:46px;top:54px}84%{width:55px;right:0;top:35px}100%{width:47px;right:8px;top:38px}}@keyframes animateSuccessLong{0%,65%{width:0;right:46px;top:54px}84%{width:55px;right:0;top:35px}100%{width:47px;right:8px;top:38px}}@-webkit-keyframes rotatePlaceholder{0%,5%{transform:rotate(-45deg);-webkit-transform:rotate(-45deg)}100%,12%{transform:rotate(-405deg);-webkit-transform:rotate(-405deg)}}@keyframes rotatePlaceholder{0%,5%{transform:rotate(-45deg);-webkit-transform:rotate(-45deg)}100%,12%{transform:rotate(-405deg);-webkit-transform:rotate(-405deg)}}.animateSuccessTip{-webkit-animation:animateSuccessTip .75s;animation:animateSuccessTip .75s}.animateSuccessLong{-webkit-animation:animateSuccessLong .75s;animation:animateSuccessLong .75s}.sa-icon.sa-success.animate::after{-webkit-animation:rotatePlaceholder 4.25s ease-in;animation:rotatePlaceholder 4.25s ease-in}@-webkit-keyframes animateErrorIcon{0%{transform:rotateX(100deg);-webkit-transform:rotateX(100deg);opacity:0}100%{transform:rotateX(0deg);-webkit-transform:rotateX(0deg);opacity:1}}@keyframes animateErrorIcon{0%{transform:rotateX(100deg);-webkit-transform:rotateX(100deg);opacity:0}100%{transform:rotateX(0deg);-webkit-transform:rotateX(0deg);opacity:1}}.animateErrorIcon{-webkit-animation:animateErrorIcon .5s;animation:animateErrorIcon .5s}@-webkit-keyframes animateXMark{0%,50%{transform:scale(.4);-webkit-transform:scale(.4);margin-top:26px;opacity:0}80%{transform:scale(1.15);-webkit-transform:scale(1.15);margin-top:-6px}100%{transform:scale(1);-webkit-transform:scale(1);margin-top:0;opacity:1}}@keyframes animateXMark{0%,50%{transform:scale(.4);-webkit-transform:scale(.4);margin-top:26px;opacity:0}80%{transform:scale(1.15);-webkit-transform:scale(1.15);margin-top:-6px}100%{transform:scale(1);-webkit-transform:scale(1);margin-top:0;opacity:1}}.animateXMark{-webkit-animation:animateXMark .5s;animation:animateXMark .5s}@-webkit-keyframes pulseWarning{0%{border-color:#F8D486}100%{border-color:#F8BB86}}@keyframes pulseWarning{0%{border-color:#F8D486}100%{border-color:#F8BB86}}.pulseWarning{-webkit-animation:pulseWarning .75s infinite alternate;animation:pulseWarning .75s infinite alternate}@-webkit-keyframes pulseWarningIns{0%{background-color:#F8D486}100%{background-color:#F8BB86}}@keyframes pulseWarningIns{0%{background-color:#F8D486}100%{background-color:#F8BB86}}.pulseWarningIns{-webkit-animation:pulseWarningIns .75s infinite alternate;animation:pulseWarningIns .75s infinite alternate}</style><style class="darkreader darkreader--sync" media="screen"></style>
+<script src="49MoEjeK-Hn9N6l-WLhRXQ_data/moment-with-locales.js"></script>
+<script src="49MoEjeK-Hn9N6l-WLhRXQ_data/angular-busy-776baa9339f927aafb3f375b8af31ea2.js"></script>
+<link rel="stylesheet" media="screen" href="49MoEjeK-Hn9N6l-WLhRXQ_data/angular-busy-cea25a4fc49b4568a474e2c0e91eb9b5.css"><style class="darkreader darkreader--sync" media="screen"></style>
+
+
+<link href="https://paiza.io/projects/e/49MoEjeK-Hn9N6l-WLhRXQ" rel="canonical">
+<script>
+  // Google Tag Manager
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-TJQKTWM');
+</script>
+<script>
+  window.current_user = null
+  if(window.current_user){
+    window.current_user.providers = null
+    window.current_user.policy = null
+  }
+  console.log("current_user=", current_user)
+  window.app_locale = "en-us"
+  window.app_locale_short = "en"
+</script>
+<script>
+  // hotjar (https://www.hotjar.com)
+  // <!-- Hotjar Tracking Code for http://paiza.io/ -->
+  (function(h,o,t,j,a,r){
+  h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+  h._hjSettings={hjid:273669,hjsv:5};
+  a=o.getElementsByTagName('head')[0];
+  r=o.createElement('script');r.async=1;
+  r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+  a.appendChild(r);
+  })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+</script><script async="" src="49MoEjeK-Hn9N6l-WLhRXQ_data/hotjar-273669.js"></script>
+<script>
+  // Inspectlet (https://www.inspectlet.com)
+  // <!-- Begin Inspectlet Embed Code -->
+  window.__insp = window.__insp || [];
+  __insp.push(['wid', 27194362]);
+  (function() {
+  function ldinsp(){if(typeof window.__inspld != "undefined") return; window.__inspld = 1; var insp = document.createElement('script'); insp.type = 'text/javascript'; insp.async = true; insp.id = "inspsync"; insp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://cdn.inspectlet.com/inspectlet.js'; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(insp, x); };
+  setTimeout(ldinsp, 500); document.readyState != "complete" ? (window.attachEvent ? window.attachEvent('onload', ldinsp) : window.addEventListener('load', ldinsp, false)) : ldinsp();
+  })();
+  // <!-- End Inspectlet Embed Code -->
+</script>
+<script>
+  // mouseflow (https://mouseflow.com)
+  var _mfq = _mfq || [];
+    (function() {
+      var mf = document.createElement("script");
+      mf.type = "text/javascript"; mf.async = true;
+      mf.src = "//cdn.mouseflow.com/projects/b2f6be73-5f2c-4f81-bd4b-15b190d646fa.js";
+      document.getElementsByTagName("head")[0].appendChild(mf);
+    })();
+</script><script type="text/javascript" async="" src="49MoEjeK-Hn9N6l-WLhRXQ_data/b2f6be73-5f2c-4f81-bd4b-15b190d646fa.js"></script>
+<script>
+  // Mixpanel (https://mixpanel.com/)
+  // <!-- start Mixpanel --><script type="text/javascript">
+  (function(e,a){if(!a.__SV){var b=window;try{var c,l,i,j=b.location,g=j.hash;c=function(a,b){return(l=a.match(RegExp(b+"=([^&]*)")))?l[1]:null};g&&c(g,"state")&&(i=JSON.parse(decodeURIComponent(c(g,"state"))),"mpeditor"===i.action&&(b.sessionStorage.setItem("_mpcehash",g),history.replaceState(i.desiredHash||"",e.title,j.pathname+j.search)))}catch(m){}var k,h;window.mixpanel=a;a._i=[];a.init=function(b,c,f){function e(b,a){var c=a.split(".");2==c.length&&(b=b[c[0]],a=c[1]);b[a]=function(){b.push([a].concat(Array.prototype.slice.call(arguments,0)))}}var d=a;"undefined"!==typeof f?d=a[f]=[]:f="mixpanel";d.people=d.people||[];d.toString=function(b){var a="mixpanel";"mixpanel"!==f&&(a+="."+f);b||(a+=" (stub)");return a};d.people.toString=function(){return d.toString(1)+".people (stub)"};k="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config reset people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+  
+  for(h=0;h<k.length;h++)e(d,k[h]);a._i.push([b,c,f])};a.__SV=1.2;b=e.createElement("script");b.type="text/javascript";b.async=!0;b.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";c=e.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c)}})(document,window.mixpanel||[]);
+  
+  mixpanel.init("f56fede95c3a912e614e8c4e8ec6ec2b");
+</script>
+<script>
+  // HEAP (https://heapanalytics.com/)
+  window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=t.forceSSL||"https:"===document.location.protocol,a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=(r?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+e+".js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n);for(var o=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","removeEventProperty","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=o(p[c])};
+  heap.load("1680397002");
+</script>
+<meta data-csrf="A0bm4ffakVAZoW1/gY9Bj/ea2KlVUKyi7QPYL9NIrCXjCG/2S4R96tYSi8gvEYZN7FVcGjuZbgJm9oTS0xH2Dw==" id="csrf" ng-controller="CsrfCtrl" class="ng-scope">
+<style>
+  .ng-cloak { display: none !important; }
+</style><style class="darkreader darkreader--sync" media="screen"></style>
+<script src="49MoEjeK-Hn9N6l-WLhRXQ_data/mode-php.js"></script><script src="49MoEjeK-Hn9N6l-WLhRXQ_data/theme-twilight.js"></script><script src="49MoEjeK-Hn9N6l-WLhRXQ_data/mode-javascript.js"></script><script src="49MoEjeK-Hn9N6l-WLhRXQ_data/javascript.js"></script></head>
+<body class="embed spa" ng-class="{embed: embed, spa: spa}" style="">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TJQKTWM"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<div aria-hidden="true" aria-labelledby="myModalLabel" class="modal fade" id="signUpModal" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">×</span>
+<span class="sr-only">Close</span>
+</button>
+<h4 class="modal-title" id="myModalLabel">
+Sign Up
+</h4>
+</div>
+<div class="modal-body">
+<a class="btn btn-lg btn-primary" href="https://paiza.io/users/auth/github" target="_self">
+<img src="49MoEjeK-Hn9N6l-WLhRXQ_data/Octocat-31ccba2be37bc3c9586160d86657907a.png" width="32" height="32">
+GitHub
+Sign In
+</a>
+<hr>
+<a class="btn btn-sm btn-primary" href="https://paiza.io/users/auth/facebook" target="_self">
+<img src="49MoEjeK-Hn9N6l-WLhRXQ_data/FB-f-Logo__blue_512-d4621313ed8f7821fb23cf46553ad3df.png" width="16" height="16">
+Facebook
+Sign In
+</a>
+<a class="btn btn-sm btn-primary" href="https://paiza.io/users/auth/google_oauth2" target="_self">
+<img src="49MoEjeK-Hn9N6l-WLhRXQ_data/btn_google_light_normal_ios3x-4960eaf9552bee055293ce4b9abec7.png" width="16" height="16">
+Google
+Sign In
+</a>
+<hr>
+<form name="signup_form" class="new_user ng-pristine ng-invalid ng-invalid-required ng-valid-minlength ng-valid-email ng-valid-validator" id="new_user" action="/users" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="RCfKcnm02NoLPZGQrC8qCCcXp+mGQcsWJea5XVfLkY6kaUNlxeo0YMSOdycCse3KPNgjWuiICbauE+WgV5LLpA==">
+<div class="control-group mb5">
+<label class="control-label" for="user_username">Username</label>
+<div class="controls">
+<input autofocus="autofocus" class="text_area ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-minlength" required="required" minlength="3" ng-model="username" type="text" name="user[username]" id="user_username">
+<span class="text-danger ng-active" ng-messages="signup_form['user[username]'].$error">
+<!-- ngMessage: required --><span ng-message="required" class="ng-scope">Required</span>
+<!-- ngMessage: minlength -->
+</span>
+<span class="text-success ng-hide" ng-show="signup_form['user[username]'].$valid">OK</span>
+</div>
+</div>
+<div class="control-group mb5">
+<label class="control-label" for="user_email">E-mail</label>
+<div class="controls">
+<input class="text_area ng-pristine ng-untouched ng-empty ng-valid-email ng-invalid ng-invalid-required" ng-model="email" required="required" type="email" name="user[email]" id="user_email">
+<span class="text-danger ng-active" ng-messages="signup_form['user[email]'].$error">
+<!-- ngMessage: required --><span ng-message="required" class="ng-scope">Required</span>
+<!-- ngMessage: email -->
+</span>
+<span class="text-success ng-hide" ng-show="signup_form['user[email]'].$valid">OK</span>
+</div>
+</div>
+<div class="control-group mb5">
+<label class="control-label" for="user_password">Password</label>
+<div class="controls">
+<input autocomplete="off" class="text_area ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-minlength" ng-model="password" minlength="8" required="required" type="password" name="user[password]" id="user_password">
+<span class="text-danger ng-active" ng-messages="signup_form['user[password]'].$error">
+<!-- ngMessage: required --><span ng-message="required" class="ng-scope">Required</span>
+<!-- ngMessage: minlength -->
+</span>
+<span class="text-success ng-hide" ng-show="signup_form['user[password]'].$valid">OK</span>
+</div>
+</div>
+<div class="mb15">
+<label for="user_password_confirmation">Password confirmation</label>
+<br>
+<input autocomplete="off" ng-model="password_confirmation" minlength="8" required="required" ui-validate="'$value==password'" ui-validate-watch="'password'" type="password" name="user[password_confirmation]" id="user_password_confirmation" class="ng-pristine ng-untouched ng-valid-validator ng-empty ng-invalid ng-invalid-required ng-valid-minlength">
+<span class="text-danger ng-active" ng-messages="signup_form['user[password_confirmation]'].$error">
+<!-- ngMessage: required --><span ng-message="required" class="ng-scope">Required</span>
+<!-- ngMessage: validator -->
+</span>
+<span class="text-success ng-hide" ng-show="signup_form['user[password_confirmation]'].$valid">OK</span>
+</div>
+<div><input type="submit" name="commit" value="Sign Up" class="btn btn-primary" ng-disabled="signup_form.$invalid" disabled="disabled"></div>
+</form><a target="_blank" href="https://paiza.io/users/password/new">Forgot your password?</a>
+<br>
+<a target="_blank" href="https://paiza.io/users/confirmation/new">Didn't receive confirmation instructions?</a>
+<br>
+
+<hr>
+<div style="font-size: x-small">
+
+</div>
+
+
+</div>
+</div>
+</div>
+</div>
+<div aria-hidden="true" aria-labelledby="myModalLabel" class="modal fade" id="signInModal" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">×</span>
+<span class="sr-only">Close</span>
+</button>
+<h4 class="modal-title" id="myModalLabel">
+Sign In
+</h4>
+</div>
+<div class="modal-body">
+<a class="btn btn-lg btn-primary" href="https://paiza.io/users/auth/github" target="_self">
+<img src="49MoEjeK-Hn9N6l-WLhRXQ_data/Octocat-31ccba2be37bc3c9586160d86657907a.png" width="32" height="32">
+GitHub
+Sign In
+</a>
+<hr>
+<a class="btn btn-sm btn-primary" href="https://paiza.io/users/auth/facebook" target="_self">
+<img src="49MoEjeK-Hn9N6l-WLhRXQ_data/FB-f-Logo__blue_512-d4621313ed8f7821fb23cf46553ad3df.png" width="16" height="16">
+Facebook
+Sign In
+</a>
+<a class="btn btn-sm btn-primary" href="https://paiza.io/users/auth/google_oauth2" target="_self">
+<img src="49MoEjeK-Hn9N6l-WLhRXQ_data/btn_google_light_normal_ios3x-4960eaf9552bee055293ce4b9abec7.png" width="16" height="16">
+Google
+Sign In
+</a>
+<hr>
+<form name="signin_form" class="new_user ng-pristine ng-valid-email ng-invalid ng-invalid-required ng-valid-minlength" id="new_user" action="/users/sign_in" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="RCfKcnm02NoLPZGQrC8qCCcXp+mGQcsWJea5XVfLkY6kaUNlxeo0YMSOdycCse3KPNgjWuiICbauE+WgV5LLpA=="><div class="control-group">
+<label class="control-label" for="user_email">E-mail</label>
+<div class="controls">
+<input autofocus="autofocus" class="text_area ng-pristine ng-untouched ng-empty ng-valid-email ng-invalid ng-invalid-required" ng-model="email" required="required" type="email" name="user[email]" id="user_email">
+<span class="text-danger" ng-show="signin_form['user[email]'].$error.required">Required</span>
+<span class="text-danger ng-hide" ng-show="signin_form['user[email]'].$error.email">Invalid E-Mail address</span>
+<span class="text-success ng-hide" ng-show="signin_form['user[email]'].$valid">OK</span>
+</div>
+</div>
+<div class="control-group">
+<label class="control-label" for="user_password">Password</label>
+<div class="controls">
+<input autocomplete="off" class="text_area ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-minlength" minlength="8" required="required" ng-model="password" type="password" name="user[password]" id="user_password">
+<span class="text-danger" ng-show="signin_form['user[password]'].$error.required">Required</span>
+<span class="text-danger ng-hide" ng-show="signin_form['user[password]'].$error.minlength">Too short(less than 8 characters)</span>
+<span class="text-success ng-hide" ng-show="signin_form['user[password]'].$valid">OK</span>
+</div>
+</div>
+<div>
+<input name="user[remember_me]" type="hidden" value="0"><input type="checkbox" value="1" name="user[remember_me]" id="user_remember_me">
+<label for="user_remember_me">Remember me</label>
+</div>
+<div><input type="submit" name="commit" value="Sign In" class="btn btn-primary"></div>
+</form><a target="_blank" href="https://paiza.io/users/password/new">Forgot your password?</a>
+<br>
+<a target="_blank" href="https://paiza.io/users/confirmation/new">Didn't receive confirmation instructions?</a>
+<br>
+
+<hr>
+<div style="font-size: x-small">
+
+</div>
+
+
+</div>
+</div>
+</div>
+</div>
+
+<!-- ngView: --><div autoscroll="" class="main ng-scope spa" ng-class="{spa: spa}" ng-view="" style=""><div class="ng-scope">
+<div class="embed">
+<div class="split-pane-parent" style="position:absolute; top:0; height:100%;">
+<div class="split-pane fixed-top" style="min-height: 5px;">
+<div class="split-pane-component aceframe" dropzone="" id="top-component">
+<div class="aceframe-header">
+<a class="embed-header-anchor" ng-href="https://paiza.io/projects/49MoEjeK-Hn9N6l-WLhRXQ" target="_blank" href="https://paiza.io/projects/49MoEjeK-Hn9N6l-WLhRXQ">
+<div style="background-color: rgb(47, 164, 231); color: white; display: inline-block; width: 100%; --darkreader-inline-bgcolor:#1474ab; --darkreader-inline-color:#e8e6e3;" tooltip-append-to-body="true" tooltip-placement="bottom-right" uib-tooltip="Open in New Window" data-darkreader-inline-bgcolor="" data-darkreader-inline-color="">
+<span class="white" ng-href="https://paiza.io/projects/49MoEjeK-Hn9N6l-WLhRXQ" target="_blank" href="https://paiza.io/projects/49MoEjeK-Hn9N6l-WLhRXQ">
+<div style="float: right; margin: 0 3px;">
+<span class="glyphicon-new-window glyphicon"></span>
+</div>
+</span>
+<span ng-href="https://paiza.io/projects/49MoEjeK-Hn9N6l-WLhRXQ" target="_blank" href="https://paiza.io/projects/49MoEjeK-Hn9N6l-WLhRXQ">
+<img src="49MoEjeK-Hn9N6l-WLhRXQ_data/paizaio_logo_s-9bd1bf73a17e2002f96a6337f2fb71f9.png" height="20">
+</span>
+</div>
+</a>
+<div class="ng-isolate-scope">
+  <ul class="nav nav-tabs" ng-class="{'nav-stacked': vertical, 'nav-justified': justified}" ng-transclude="">
+<!-- ngRepeat: source_file in project.source_files --><li ng-class="[{active: active, disabled: disabled}, classes]" class="uib-tab nav-item ng-scope ng-isolate-scope active" active="source_file.active" ng-repeat="source_file in project.source_files" select="$parent.project.source_file_pos=$index" style="">
+  <a href="" ng-click="select($event)" class="nav-link ng-binding" uib-tab-heading-transclude=""><uib-tab-heading class="ng-scope">
+<span ng-dblclick="($index!=0)?(renaming=true):nil" ng-show="!renaming" class="ng-binding">
+Main.js
+</span>
+<span ng-show="renaming" class="ng-hide">
+<input ng-blur="renaming=false" ng-keyup="renaming_keyup(this, $event)" ng-model="source_file.filename" type="text" class="ng-pristine ng-untouched ng-valid ng-not-empty" value="Main.js">
+</span>
+<a ng-click="delete_source_file($index)" ng-hide="$index==0" class="ng-hide">
+<span class="glyphicon-remove glyphicon"></span>
+</a>
+</uib-tab-heading></a>
+</li><!-- end ngRepeat: source_file in project.source_files -->
+<a ng-click="new_source_file()" style="padding: 2px 15px;display: block; float: left;" class="ng-scope">
+<span class="glyphicon-plus glyphicon"></span>
+</a>
+</ul>
+  <div class="tab-content">
+    <!-- ngRepeat: tab in tabset.tabs --><div class="tab-pane ng-scope active" ng-repeat="tab in tabset.tabs" ng-class="{active: tabset.active === tab.index}" uib-tab-content-transclude="tab" style="">
+    
+
+</div><!-- end ngRepeat: tab in tabset.tabs -->
+  </div>
+</div>
+<div class="progress ng-isolate-scope ng-hide" ng-transclude="" aria-labelledby="" ng-show="bar_show">
+<div class="progress-bar-striped  progress-bar progress-no-transition" ng-class="type &amp;&amp; 'progress-bar-' + type" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" ng-style="{width: (percent &lt; 100 ? percent : 100) + '%'}" aria-valuetext="100%" aria-labelledby="progressbar" ng-transclude="" bar="" type="success" value="dynamic" style="width: 100%;"><span class="ng-binding ng-scope">
+Success
+</span><!-- ngIf: bar_message --><a class="btn btn-sm btn-default ng-scope" ng-href="https://paiza.io/projects/49MoEjeK-Hn9N6l-WLhRXQ" ng-if="bar_message" style="padding: 0px 15px; margin: 0px 5px; color: initial; --darkreader-inline-color: initial;" target="_blank" tooltip-animation="false" uib-tooltip="Open in New Window" href="https://paiza.io/projects/49MoEjeK-Hn9N6l-WLhRXQ" data-darkreader-inline-color="">
+<i class="glyphicon glyphicon-new-window"></i>
+</a><!-- end ngIf: bar_message -->
+</div>
+</div>
+</div>
+<div class="aceframe-content" style="height: 289px;">
+<div class="editor ng-pristine ng-untouched ng-valid ace_editor ace_hidpi ace_dark ace-twilight ng-not-empty" ng-model="project.source_files[project.source_file_pos].body" ui-ace="aceOptions" style="font-size: 12px;"><textarea class="ace_text-input" autocorrect="off" autocapitalize="none" spellcheck="false" style="opacity: 0; font-size: 1px; height: 1px; width: 1px; transform: translate(43px, 13px);" wrap="off"></textarea><div class="ace_gutter" aria-hidden="true" style="left: 0px; width: 39px;"><div class="ace_layer ace_gutter-layer ace_folding-enabled" style="height: 1000000px; transform: translate(0px); width: 39px;"><div class="ace_gutter-cell ace_gutter-active-line " style="height: 13px; top: 0px;">1<span style="display: none;"></span></div><div class="ace_gutter-cell " style="height: 13px; top: 13px;">2<span style="display: inline-block; height: 13px;" class="ace_fold-widget ace_start ace_open"></span></div><div class="ace_gutter-cell " style="height: 13px; top: 26px;">3<span style="display: none;"></span></div><div class="ace_gutter-cell " style="height: 13px; top: 39px;">4<span style="display: none;"></span></div><div class="ace_gutter-cell " style="height: 13px; top: 52px;">5<span style="display: none;"></span></div><div class="ace_gutter-cell " style="height: 13px; top: 65px;">6<span style="display: none;"></span></div><div class="ace_gutter-cell " style="height: 13px; top: 78px;">7<span style="display: none;"></span></div><div class="ace_gutter-cell " style="height: 13px; top: 91px;">8<span style="display: none;"></span></div></div></div><div class="ace_scroller" style="line-height: 13px; left: 39px; right: 0px; bottom: 0px;"><div class="ace_content" style="transform: translate(0px); width: 731px; height: 315px;"><div class="ace_layer ace_print-margin-layer"><div class="ace_print-margin" style="left: 484px; visibility: visible;"></div></div><div class="ace_layer ace_marker-layer"><div style="height: 13px; top: 0px; left: 0px; right: 0px;" class="ace_active-line"></div></div><div class="ace_layer ace_text-layer" style="height: 1000000px; margin: 0px 4px; transform: translate(0px);"><div style="height: 13px; top: 0px;" class="ace_line"></div><div style="height: 13px; top: 13px;" class="ace_line"><span class="ace_storage ace_type">function</span> <span class="ace_entity ace_name ace_function">addition</span><span class="ace_paren ace_lparen">(</span><span class="ace_variable ace_parameter">x</span><span class="ace_punctuation ace_operator">, </span><span class="ace_variable ace_parameter">y</span><span class="ace_paren ace_rparen">)</span> <span class="ace_paren ace_lparen">{</span></div><div style="height: 13px; top: 26px;" class="ace_line"><span class="ace_indent-guide">    </span>   <span class="ace_comment">// Écrivez votre code ici</span></div><div style="height: 13px; top: 39px;" class="ace_line"><span class="ace_paren ace_rparen">}</span></div><div style="height: 13px; top: 52px;" class="ace_line"></div><div style="height: 13px; top: 65px;" class="ace_line"><span class="ace_comment">// Afficher la sortie</span></div><div style="height: 13px; top: 78px;" class="ace_line"><span class="ace_storage ace_type">console</span><span class="ace_punctuation ace_operator">.</span><span class="ace_support ace_function ace_firebug">log</span><span class="ace_paren ace_lparen">(</span><span class="ace_identifier">addition</span><span class="ace_paren ace_lparen">(</span><span class="ace_constant ace_numeric">1</span><span class="ace_punctuation ace_operator">,</span><span class="ace_constant ace_numeric">2</span><span class="ace_paren ace_rparen">))</span><span class="ace_punctuation ace_operator">;</span></div><div style="height: 13px; top: 91px;" class="ace_line"><span class="ace_storage ace_type">console</span><span class="ace_punctuation ace_operator">.</span><span class="ace_support ace_function ace_firebug">log</span><span class="ace_paren ace_lparen">(</span><span class="ace_identifier">addition</span><span class="ace_paren ace_lparen">(</span><span class="ace_keyword ace_operator">-</span><span class="ace_constant ace_numeric">2</span><span class="ace_punctuation ace_operator">,</span><span class="ace_keyword ace_operator">-</span><span class="ace_constant ace_numeric">4</span><span class="ace_paren ace_rparen">))</span><span class="ace_punctuation ace_operator">;</span></div></div><div class="ace_layer ace_marker-layer"></div><div class="ace_layer ace_cursor-layer ace_hidden-cursors"><div class="ace_cursor" style="display: block; transform: translate(4px); width: 6px; height: 13px;"></div></div></div></div><div class="ace_scrollbar ace_scrollbar-v" style="display: none; width: 17px; bottom: 0px;"><div class="ace_scrollbar-inner" style="width: 17px; height: 104px;">&nbsp;</div></div><div class="ace_scrollbar ace_scrollbar-h" style="display: none; height: 17px; left: 39px; right: 0px;"><div class="ace_scrollbar-inner" style="height: 17px; width: 770px;">&nbsp;</div></div><div style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; position: absolute; white-space: pre; font: inherit; overflow: hidden;"><div style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; position: absolute; white-space: pre; font: inherit; overflow: visible;">הההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההה</div><div style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; position: absolute; white-space: pre; font-style: inherit; font-variant: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; font-size-adjust: inherit; font-kerning: inherit; font-optical-sizing: inherit; font-language-override: inherit; font-feature-settings: inherit; font-variation-settings: inherit; overflow: visible;">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</div></div></div>
+</div>
+<div class="aceframe-footer">
+<div class="config-box">
+<span style="text-align:left;style=width:100%;">
+<div class="btn-group dropup" dropdown="" style="width:100%;">
+<div class="button btn btn-primary" ng-click="submit_clicked(false, true, false)" ng-disabled="!ready" style="margin: 1px 0px; width:100%;" type="button">
+<span class="ng-binding">
+Run (Ctrl-Enter)
+</span>
+</div>
+</div>
+</span>
+</div>
+</div>
+</div>
+<div class="split-pane-divider" id="my-divider"></div>
+<div class="split-pane-component" id="bottom-component">
+<div active="ctrl.result_tab_active" class="ng-isolate-scope">
+  <ul class="nav nav-tabs" ng-class="{'nav-stacked': vertical, 'nav-justified': justified}" ng-transclude="">
+<li ng-class="[{active: active, disabled: disabled}, classes]" class="uib-tab nav-item ng-scope ng-isolate-scope active" index="'tab_stdout_active'" ng-show="project.exit_code != null" style="">
+  <a href="" ng-click="select($event)" class="nav-link ng-binding" uib-tab-heading-transclude=""><uib-tab-heading tooltip-animation="false" uib-tooltip="Standard output" class="ng-binding ng-scope">
+Output
+</uib-tab-heading></a>
+</li>
+<li ng-class="[{active: active, disabled: disabled}, classes]" class="uib-tab nav-item ng-scope ng-isolate-scope ng-hide" index="'tab_stderr_active'" ng-show="project.stderr">
+  <a href="" ng-click="select($event)" class="nav-link ng-binding" uib-tab-heading-transclude=""><uib-tab-heading uib-tooltip="Standard error message" class="ng-binding ng-scope">
+Runtime error
+</uib-tab-heading></a>
+</li>
+<li ng-class="[{active: active, disabled: disabled}, classes]" class="uib-tab nav-item ng-scope ng-isolate-scope ng-hide" index="'tab_build_output_active'" ng-show="project.build_stdout||project.build_stderr">
+  <a href="" ng-click="select($event)" class="nav-link ng-binding" uib-tab-heading-transclude=""><uib-tab-heading tooltip-animation="false" uib-tooltip="Build error" class="ng-binding ng-scope">
+Build error
+</uib-tab-heading></a>
+</li>
+<li ng-class="[{active: active, disabled: disabled}, classes]" class="uib-tab nav-item ng-scope ng-isolate-scope" index="'tab_stdin_active'">
+  <a href="" ng-click="select($event)" class="nav-link ng-binding" uib-tab-heading-transclude=""><uib-tab-heading tooltip-animation="false" uib-tooltip="Standard input" class="ng-binding ng-scope">
+Input
+</uib-tab-heading></a>
+</li>
+<span ng-show="project.time" style="color: rgb(204, 204, 204); float: right; --darkreader-inline-color:#c8c3bc;" class="ng-binding ng-scope" data-darkreader-inline-color="">
+(0.03 sec)
+</span>
+</ul>
+  <div class="tab-content">
+    <!-- ngRepeat: tab in tabset.tabs --><div class="tab-pane ng-scope" ng-repeat="tab in tabset.tabs" ng-class="{active: tabset.active === tab.index}" uib-tab-content-transclude="tab">
+    
+
+<pre class="variable-area ng-scope"><code class="ng-binding">0</code></pre>
+</div><!-- end ngRepeat: tab in tabset.tabs --><div class="tab-pane ng-scope" ng-repeat="tab in tabset.tabs" ng-class="{active: tabset.active === tab.index}" uib-tab-content-transclude="tab">
+    
+
+<pre class="variable-area ng-binding ng-scope"></pre>
+</div><!-- end ngRepeat: tab in tabset.tabs --><div class="tab-pane ng-scope" ng-repeat="tab in tabset.tabs" ng-class="{active: tabset.active === tab.index}" uib-tab-content-transclude="tab">
+    
+
+<textarea class="form-control variable-area ng-pristine ng-untouched ng-valid ng-scope ng-empty" dropzone-input="" ng-model="project.input" ng-trim="false" style="resize:none;"></textarea>
+</div><!-- end ngRepeat: tab in tabset.tabs --><div class="tab-pane ng-scope active" ng-repeat="tab in tabset.tabs" ng-class="{active: tabset.active === tab.index}" uib-tab-content-transclude="tab">
+    
+
+<div style="position:absolute; top: 24px; right: 15px; z-index: 1; margin: 2px;" class="ng-scope">
+<select ng-model="project.output_type" ng-options="output_type.value as output_type.name for output_type in ctrl.output_type_options" class="ng-pristine ng-untouched ng-valid ng-empty"><option label="Text" value="object:null" selected="selected">Text</option><option label="HTML" value="string:html">HTML</option><option label="JSON" value="string:json">JSON</option></select>
+<a class="btn btn-sm btn-default" ng-href="https://out.paiza.io:443/projects/49MoEjeK-Hn9N6l-WLhRXQ/output/output.txt" style="padding:2px 5px;" target="_blank" tooltip-animation="false" uib-tooltip="Open in New Window as " href="https://out.paiza.io/projects/49MoEjeK-Hn9N6l-WLhRXQ/output/output.txt">
+<span class="glyphicon-share-alt glyphicon"></span>
+</a>
+</div>
+<div class="h100 ng-scope" ng-show="project.output_type==null || project.output_type=='json'">
+<div class="variable-area">
+<pre><code class="ng-binding">undefined
+undefined
+</code></pre>
+</div>
+</div>
+<div ng-show="project.output_type=='html'" class="ng-scope ng-hide">
+<div class="variable-area">
+<iframe ng-show="project.output_type=='html'" ng-src="" style="width:100%; height: 100%" class="ng-hide"></iframe>
+</div>
+</div>
+</div><!-- end ngRepeat: tab in tabset.tabs -->
+  </div>
+</div>
+</div>
+<div class="split-pane-resize-shim"></div></div>
+</div>
+</div>
+
+</div>
+</div>
+<div ng-show="noview" class="ng-hide">
+
+</div>
+<div class="paizacloud-advertisement">
+<div class="img-wrapper">
+<a href="https://paiza.cloud/ja/" target="_blank">
+<img src="49MoEjeK-Hn9N6l-WLhRXQ_data/bnr_960x125_en.png" height="65">
+</a>
+</div>
+</div>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-42027263-3', 'auto');
+    ga('require', 'displayfeatures');
+    if(current_user){
+      ga('set', 'userId', 'uid-' + current_user.id);
+      ga('set', 'userName', current_user.username);
+      ga('set', 'dimension1', 'uid-' + current_user.id);
+      ga('set', 'dimension2', 'LoggedIn');
+    }else{
+      ga('set', 'dimension2', 'NotLoggedIn');
+    }
+    // ga('send', 'pageview');
+</script>
+<script>
+  var http_referer = "https://waytolearnx.com/2020/04/exercice-javascript-corrige-partie-1.html";
+  console.log('HTTP_REFERER=', http_referer);
+  if(http_referer && current_user){
+    var parser = document.createElement('a')
+    parser.href = http_referer;
+    var pathname = parser.pathname;
+    if(pathname.match(new RegExp("^(/users/auth/[a-z]+/callback|/users/confirmation)"))){
+      ga('send', 'pageview', {page: pathname});
+    }
+  }
+</script>
+<script>
+  var notice = null;
+  console.log('notice=', notice);
+  if(notice){
+    ga('send', 'pageview', {page: '/notice/' + notice})
+    ga('send', 'event', {
+      eventCategory: 'notice',
+      eventAction: 'show',
+      eventLabel: notice,
+    });
+  }
+</script>
+<script>
+  window.twttr = (function (d, s, id) {
+    var t, js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src= "https://platform.twitter.com/widgets.js";
+    fjs.parentNode.insertBefore(js, fjs);
+    return window.twttr || (t = { _e: [], ready: function (f) { t._e.push(f) } });
+  }(document, "script", "twitter-wjs"));
+</script>
+
+
+<iframe scrolling="no" allowtransparency="true" src="49MoEjeK-Hn9N6l-WLhRXQ_data/widget_iframe.html" title="Twitter settings iframe" style="display: none;" frameborder="0"></iframe><iframe id="rufous-sandbox" scrolling="no" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: medium none; --darkreader-inline-border-top:currentcolor; --darkreader-inline-border-right:currentcolor; --darkreader-inline-border-bottom:currentcolor; --darkreader-inline-border-left:currentcolor;" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left="" title="Twitter analytics iframe" frameborder="0"></iframe></body></html>

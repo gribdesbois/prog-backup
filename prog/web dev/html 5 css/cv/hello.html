@@ -1,0 +1,260 @@
+﻿<html>
+<head>
+<meta charset="utf-8" />
+<title>Presentation of my website</title>
+</head>
+
+<body>
+
+<h1>Welcome to my website</h1>
+
+<p>Hello and welcome to my website: Chez jgribounet. <br /> who the fuck is jgribounet? </p>
+
+
+<h2>Training courses for beginners </h2>
+ 
+<p> Chez jgriboulet quand tu te fais trop chier tu pex des cours sur openclassroom.com et on recopie.
+
+<br />
+OpenClassroom.com website provides you with tutorials <mark>for beginners:</mark><strong> no previous knowledge required 
+</strong>
+<br />
+</p>
+<h2>An <em>active </em>community</h2>
+
+<p> You have a problem or something in the course you don t understand? You need help in creating your website?<br />
+<em>Visit the forum </em> ! You´ll find that you re not alone in this and cerntainly find someone to help solve your problem
+</p>
+
+<p>
+<h1>My day</h1>
+ 
+<ol>
+<li>I get up.</li>
+<li>I eat and drink.</li>
+<li>I go back to bed.</li>
+</ol>
+</p>
+
+<p>Hello. Do you want to visit the website <a href="https://duckduckgo.com"><strong>DuckDuckGo</a>?<br />
+
+It's a good website! ;-)</p>
+
+
+<h1>>My big page</h1>
+
+<p>
+Go straight to the part dealing with:<br />
+<a href="#kitchen">The kitchen</a><br />
+<a href="#rollers">Rollers</a><br />
+<a href="#archery">Archery</a><br />
+</p>
+<h2 id="kitchen">The kitchen</h2>
+
+<p>
+
+Welcome to OpenClassrooms! By continuing on the site, you are agreeing to our use of cookies. Read more ok
+OpenClassrooms.com
+
+    Paths
+    Courses
+    Partners
+    Forums
+    Premium
+
+Aurelien Guillaudon
+Breadcrumb
+
+    Home Course Build your website with HTML5 and CSS3 Creating links 
+
+Build your website with HTML5 and CSS3
+
+    20 hours Easy 
+
+License
+
+Creating links
+
+In the previous chapter, you learned how to create a simple HTML page. Okay, it wasn't really up to much, but it was a real HTML page all the same.
+
+As you know, a website consists of several pages. How do you go from one page to another? Using links of course! So how to create links between our pages is what we are going to learn to do this chapter.
+
+I guess you all know what a link is: it's a text that you can click to go to another page.
+You can make a link from a page a.html to a page b.html, but you can also make a link to another website (for example, http://www.google.com). We'll see that both cases work in the same way.
+A link to another website
+
+It's easy to recognize the links on a page: they're written in a different way (as default, in blue underlined) and a cursor which looks like a hand appears when you point to it.
+
+I suggest you try to encode a link that takes you to Google, as shown in the next figure.
+Link to Google
+Link to Google
+
+To insert a link, the tag that we're going to use is very easy to remember: <a>. However, an attribute, href, to it to indicate the page the link should lead to.
+
+For example, the code below is a link that leads to Google, located at the address http://www.google.com:
+
+<a href="http://www.google.com">Google</a>
+
+We're going to include this link in a paragraph. So here's how you reproduce the example in the next figure:
+
+<p>Hello. Do you want to visit the website <a href="http://www.google.com">Google</a>?<br />
+
+It's a good website! ;-)</p>
+
+By default, the link is highlighted in blue. If you've already opened the page, the link is displayed in purple.
+We'll see how to change this appearance when we study CSS.
+
+If you want to make a link to another site, you can just copy its address (called a URL) in http://. Note that some links sometimes start with https:// (secure websites) or other prefixes (ftp://, etc.).
+
+If you make a link to a website that has an address that is a little strange with occurrences of '&', as in: ﻿http://www.site.com/?data=15&name=mateo21, you will have to replace every "&" by "&amp;" in your link as follows: http://www.site.com/?data=15&amp;name=mateo21  .
+
+You will notice no difference, yet this is necessary if you want your web page to be correctly constructed in HTML5.﻿‌
+
+The links that we have seen are called absolute links since the full address is shown. We are now going to see that we can write the links in a somewhat different way which will be useful for making links between the pages of our website.
+A link to another page of your website
+
+We have just learned how to create links to existing websites. But I'm sure you'd like to make links between the pages of your website, right?
+
+Yes, how exactly do I make a link to another page on my website? I don't know its http://…… address as I've only just started to create my website here! I don't have an address.
+
+Indeed, for the time being, you're creating your website on your computer. You're the only one who can see it and it doesn't yet have a "web address" starting with http:// like most websites. Fortunately, this won't prevent us from working.
+Two pages located in the same folder
+
+To begin with, we're going to create two files corresponding to two different HTML pages. As I'm very inspired, I propose to call them page1.html and page2.html. We'll thus have these two files on our hard disk in the same folder (see next figure).
+Several HTML files in the same folder
+Several HTML files in the same folder
+
+How do you make a link from page 1 to page 2 without having an address in http://? In fact, it's easy: if both files are located in the same folder, just write the name of the file you want to move to as the target link. For example: <a href="page2.html">. This is said to be a relative link.
+
+Here's the code that we're going to use in our files page1.html and page2.html.
+page1.html
+
+<p>Hello. Do you want to view <a href="page2.html">page 2</a> ?</p>
+
+page2.html
+
+Page 2 (arrival page) will simply display a message to indicate that you've effectively reached page 2:
+
+<h1>Welcome to page 2 !</h1>
+
+Two pages located in different folders
+
+Things get a bit more difficult if the pages are located in different folders. Ideally, they shouldn't be too far away from each other (in a subfolder, for example).
+
+Let's imagine that page2.html is located in a subfolder called content, as in the next figure.
+The page2.html file is located in the content folder
+The page2.html file is located in the content folder
+
+In this case, the link should be written like this:
+
+<a href="contenu/page2.html">
+
+If there are several subfolders, you'd write this:
+
+<a href="contenu/autredossier/page2.html">
+
+And what if the file is not located in a subfolder but in a "parent" folder? What do you do then?
+
+If your target file is placed in a folder that is located "higher" in the tree structure, you have to write two dots like this:
+
+<a href="../page2.html">
+
+Pictorial overview
+
+Relative links are not very complicated to use once you've understand the principle. To know how to write your link, just look at the "folder level" in which your target file is located. The next figure summarizes the various possible relative links.
+Relative links
+Relative links
+A link to an anchor
+
+An anchor is a sort of reference point that you can put in your HTML pages when they are very long.
+Indeed, it may be then be useful to create a link to a point further down the same page to allow visitors to jump directly to the part they are interested in.
+
+To create a new anchor, just add the id attribute a tag which will then act as a reference point. It can be any tag, such as a title, for example.
+Use the id attribute to give a name to the anchor. We will then be able to use it to make a link to this anchor. For example:
+
+<h2 id="my_anchor">Title</h2>
+
+Then just create a link as usual, but this time the href attribute will contain a hash character (#) followed by the anchor name. Example:
+
+<a href="#my_anchor">Go to the anchor</a>
+
+Normally, if you click the link, it will take you further down the same page (provided the page has enough text for the scroll bars to move automatically).
+Here's an example of a page with lots of text and which uses anchors (I've used any old text just to fill up the page):
+
+<h1>>My big page</h1>
+
+
+<p>
+
+Go straight to the part dealing with:<br />
+
+<a href="#kitchen">The kitchen</a><br />
+
+<a href="#rollers">Rollers</a><br />
+
+<a href="#archery">Archery</a><br />
+
+</p>
+
+<h2 id="kitchen">The kitchen</h2>
+
+
+<p>... (lots of text) ...</p>
+
+
+<h2 id="rollers">Rollers</h2>
+
+
+<p>... (lots of text) ...</p>
+
+
+<h2 id="archery">Archery</h2>
+
+
+<p>... (lots of text) ...</p>
+
+If nothing happens when you click on the links, this means that there is not enough text. In this case, you can either add any old text to the page so that it has (even) more text or reduce the size of your browser window to display the scroll bars on the side.
+
+The id attribute is used to give a "unique" name to a tag, to use it as a reference. And believe me, you haven't heard the last of this attribute. Here, it is used to link to an anchor, but in CSS, it will be very useful to us to "mark" a specific tag, as you'll see.
+However, avoid creating ids with spaces or special characters. Wherever possible, simply use letters and numbers so that the value is recognized by all browsers.
+Link to an anchor located in another page
+
+OK, be warned. This is really going to be a megamix!
+
+The idea is to make a link that opens another page AND that takes you directly to an anchor located further down on this page.
+In practice it's fairly simple to do: just type the page name, followed by a hash character (#), followed by the anchor name.
+
+For example: <a href="anchors.html#rollers">
+
+... will take you to the page anchors.html, directly to the anchor called rollers.
+
+Here's a page that contains three links, each leading to one of the anchors of the page in the previous example:
+
+<h1>Megamix</h1>
+
+<p>
+
+Reference somewhere on another page:<br />
+
+<a href="anchors.html#kitchen">The kitchen</a><br />
+
+<a href="anchors.html#rollers">Rollers</a><br />
+
+<a href="anchors.html#arc">Archery</a><br />
+
+</p>
+
+Practical examples of using links
+Organizing your text Images
+</p>
+
+<h2 id="rollers">Rollers</h2>
+
+<p>... (lots of text) ...</p>
+
+<h2 id="archery">Archery</h2>
+
+<p>... (lots of text) ...</p>
+
+</body>
+</html>

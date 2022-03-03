@@ -1,0 +1,32 @@
+@keyframes headshake {
+    25% {
+        // far -right
+        transform: translateX($shake-intensity);
+    }
+    75% {
+        // far-left
+        transform: translateX($shake-intensity);
+//We want the far-left position of our email input to be the inverse 
+//of the right, so we’ve just prefixed the variable with a negative symbol.        
+    }
+}
+
+@keyframes bars {
+    0% { 
+        transform: scaleY(0.5);
+    }  
+    100% { 
+        transform: scaleY(1.0);
+    }
+}
+
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+

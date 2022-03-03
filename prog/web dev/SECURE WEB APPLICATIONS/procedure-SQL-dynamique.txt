@@ -1,0 +1,53 @@
+CREATE PROCEDURE sp_owaspLogin
+@bind_username varchar(10)
+
+@bind_password varchar(10)
+
+AS
+
+BEGIN
+DECLARE @myquery varchar(100)
+
+SET @myquery = N'SELECT login FROM accounts WHERE username = @username AND password = @password'
+
+DECLARE @bind_user nvarchar(10) = N'@username';
+
+DECLARE @bind_pass nvarchar(10) = N'@password';
+
+EXEC sp_executesql @myquery, @bind_user, @username = @bind_username;
+
+//lie la variable ainsi que la fonction sp_executesql pour securiser le script
+
+
+ORM
+
+SELECT * FROM accounts WHERE username='@username' AND password='@password'
+
+<==> knex('accounts').where('username',john ).orWhere({password: ThisIsMySUperS3c3tPass , user: 'knex'}) 
+
+with knex node framework (npm install knex..)
+
+//Remove all character from the email except letters, digits and  !#$%&'*+-=?*^_{|}~@.[]
+echo filter_var($dirtyAddress, FILTER_SANITIZE_EMAIL);
+
+PHP possède une bibliothèque appelée SessionManager avec des fonctions qui peuvent être utilisées pour valider les sessions avec des restrictions.
+Voici un exemple de la fonction  preventHijacking()  du gestionnaire de sessions utilisé pour limiter une session à un hôte et à une adresse IP spécifiques. Si l'hôte et l'adresse IP ne sont pas identiques, ils ne s'authentifieront pas. Cela permet de sécuriser le mécanisme d'authentification.
+static protected function preventHijacking()
+
+{
+
+if(!isset($_SESSION['IPaddress']) || !isset($_SESSION['userAgent']))
+
+return false;
+
+if ($_SESSION['IPaddress'] != $_SERVER['REMOTE_ADDR'])
+
+return false;
+
+if( $_SESSION['userAgent'] != $_SERVER['HTTP_USER_AGENT'])
+
+return false;
+
+return true
+
+}

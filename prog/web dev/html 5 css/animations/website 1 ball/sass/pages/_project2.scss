@@ -1,0 +1,41 @@
+
+.btn2 {
+    &:hover {
+        & + .progress {
+            & > .progress__bar {
+                transform: scaleX(1);
+            }
+        }
+        ~ .boxes {
+            & > .boxes--rotDegrees {
+                transform: rotate(0deg);
+            }
+            & > .boxes--rotTurns {
+                transform: rotate(0turn);
+            }
+        }
+    }
+}
+
+.progress {
+    &__bar {
+        transform-origin: 0%;
+        background-color: $cd-secondary;
+        padding: 2rem;
+        transform: scaleX(0);
+        transition: transform 1000ms cubic-bezier(.32,0,.07,1);
+    }
+}
+
+.boxes {
+    &--rotDegrees {
+        background: green;
+        transform: rotate(360deg);
+        transition: transform 500ms ease-in-out;
+    }
+    &--rotTurns {
+        background: pink;
+        transform: rotate(-1turn);
+        transition: transform 500ms ease-in-out;
+    }
+}

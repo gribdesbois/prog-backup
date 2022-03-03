@@ -1,0 +1,16 @@
+$colour-secondary: #466be4;
+$colour-primary: complement($colour-secondary);
+$colour-accent: #21cfa4;
+$colour-white: #fff;
+$colour-invalid: #DB464B;
+
+$heading-shadow-size: .55rem;
+$layout-margin: 6rem;
+$grid-gutter: $layout-margin * .25;
+
+$cd-txt: #6300a0;
+$cd-txt--invalid: #21cfa4;
+$cd-danger: #08080a;
+$cd-box: #32A852;
+$ball-size: 60px;
+$cd-secondary: #11ee23cb;

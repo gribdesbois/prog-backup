@@ -1,0 +1,11 @@
+
+.calc{ 
+    padding:10px; width:100%; 
+    & textarea{
+        padding:5px; width:100%;
+    }
+    & button>i { 
+        vertical-align:middle;
+    }
+}
+

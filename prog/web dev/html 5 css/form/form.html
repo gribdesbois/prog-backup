@@ -1,0 +1,189 @@
+<!doctype html>
+<meta charset="UTF-8"/>
+    
+    </head>
+    <title> different types of forms </title>
+    </head>
+    
+    
+    <body>
+    
+    <form method="post" action="target.php">
+        <p>
+            <label for="username">Your user name:</label>
+            <input type="text" name="username" id="username"/>
+            <br/>
+            <label for="pass"> Your user name:</label>
+            <input type="password" name="pass" id="pass" />
+        </p>
+    </form>
+    <br/>
+    
+    
+    <form method="post" action="target.php">
+        <p>
+            <label for="improve"> How do you think i could improve my website?</label><br/>
+            <textarea name="improve" id="improve">
+                    Improve your website?
+                    Come on! It's so great it won't need any improving
+            </textarea>
+        </p>
+    </form>
+    <br/>
+    
+   
+   <form method="post" action="target.php">
+        <p>
+            Check the foods you like to eat:<br/>
+            <input type="checkbox" name="fries" id="fries" /> <label for="fries"> Fries </label><br/>
+            <input type="checkbox" name="hamburger" id="hamburger"/> <label for="hamburger">Hamburger</label><br/>
+            <input type="checkbox" name="spinach" id="spinach"/> <label for="spinach">Spinach</label><br/>
+            <input type="checkbox" name="oyster" id="oyster"/> <label for="oyster">Oyster</label><br/>
+        </p>
+    </form>
+            
+            
+<form method="post" action="target.php">
+
+   <p>
+
+       Please indicate your age group:<br />
+
+       <input type="radio" name="age" value="moins15" id="moins15" /> <label for="moins15">Less than 15 years old</label><br />
+
+       <input type="radio" name="age" value="medium15-25" id="medium15-25" /> <label for="medium15-25">15-25 years old</label><br />
+
+       <input type="radio" name="age" value="medium25-40" id="medium25-40" /> <label for="medium25-40">25-40 years old</label><br />
+
+       <input type="radio" name="age" value="plus40" id="plus40" /> <label for="plus40">Even older than that?!</label>
+
+   </p>
+
+</form>
+
+<form method="post" action="target.php">
+   <p>
+       Please indicate your age group:<br />
+       <input type="radio" name="age" value="less15" id="less15" /> <label for="less15">Less than 15 years old</label><br />
+       <input type="radio" name="age" value="medium15-25" id="medium15-25" /> <label for="medium15-25">15-25 years old</label><br />
+       <input type="radio" name="age" value="medium25-40" id="medium25-40" /> <label for="medium25-40">25-40 years old</label><br />
+       <input type="radio" name="age" value="plus40" id="plus40" /> <label for="plus40">Even older than that?!</label>
+   </p>
+   <p>
+       Which continent do you live on?<br />
+       <input type="radio" name="continent" value="europe" id="europe" /> <label for="europe">Europe</label><br />
+       <input type="radio" name="continent" value="africa" id="africa" /> <label for="africa">Africa</label><br />
+       <input type="radio" name="continent" value="asia" id="asia" /> <label for="asia">Asia</label><br />
+       <input type="radio" name="continent" value="america" id="america" /> <label for="america">America</label><br />
+       <input type="radio" name="continent" value="australia" id="australia" /> <label for="australia">Australia</label>
+   </p>
+</form>
+
+
+
+<form method="post" action="target.php">
+
+   <p>
+
+       <label for="country">What country do you live in?</label><br />
+
+       <select name="country" id="country">
+
+           <option value="unitedstates">United States</option>
+
+           <option value="canada">Canada</option>
+
+           <option value="unitedkingdom">United Kingdom</option>
+
+           <option value="france">France</option>
+
+           <option value="spain">Spain</option>
+
+           <option value="italy">Italy</option>
+
+           <option value="china">China</option>
+
+           <option value="japan">Japan</option>
+
+       </select>
+
+   </p>
+
+</form>
+
+<form method="post" action="target.php">
+
+   <p>
+
+       <label for="country">What country do you live in?</label><br />
+
+       <select name="country" id="country">
+
+           <optgroup label="Europe">
+
+               <option value="unitedkingdom">United Kingdom</option>
+
+               <option value="france">France</option>
+
+               <option value="spain">Spain</option>
+
+               <option value="italy">Italy</option>
+
+           </optgroup>
+
+           <optgroup label="America">
+
+               <option value="unitedstates">United States</option>
+
+               <option value="canada">Canada</option>
+
+           </optgroup>
+
+           <optgroup label="Asia">
+
+               <option value="china">China</option>
+
+               <option value="japan">Japan</option>
+
+           </optgroup>
+
+       </select>
+
+   </p>
+
+</form>
+
+
+<form method="post" action="target.php">
+
+    <fieldset>
+        <legend>Your contact details</legend>
+        
+        <label for="lastname">What's your last name?</label></br>
+        <input type="text" name="lastname" id="lastname" /></br>
+        
+        <label for="firstname">What's your first name?</label></br>
+        <input type="text" name="firstname" id="firstname" /></br>
+        
+        <label for="email">What's your email address?</label></br>
+        <input type="email" name="email" id="email" /></br>
+    </fieldset>
+    
+    <fieldset>
+        <legend>Your wish</legend>
+        <p>
+        Make a wish that you would like to come true:</br>
+        
+        <input type="radio" name="wish" value="rich" id="rich" /><label for="rich"> Be rich</label></br>
+        <input type="radio" name="wish" value="famous" id="famous" /><label for="famous"> Be famous</label></br>
+        <input type="radio" name="wish" value="intelligent" id="intelligent" /><label for="rich"> Be <strong>even more</strong> intelligent</label></br>
+        <input type="radio" name="wish" value="other" id="other" /><label for="other"> Other...</label></br>
+        </p>
+        
+        
+        <p>
+            <label for="specs"> If "Other", please specify:</label></br>
+            <textarea name="specs" id="specs" cols="40" rows="4"></textarea>
+        </p>
+        </fieldset>
+</form>

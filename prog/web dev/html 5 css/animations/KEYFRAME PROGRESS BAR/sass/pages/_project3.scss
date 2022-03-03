@@ -1,0 +1,9 @@
+.prog {
+	&__bar {
+        animation: prog-bar 1000ms 150ms;//adding delay(i.e animation-delay:150ms;)
+        padding:2rem;
+        background: green;
+        transform-origin: 0%;
+
+	}
+}

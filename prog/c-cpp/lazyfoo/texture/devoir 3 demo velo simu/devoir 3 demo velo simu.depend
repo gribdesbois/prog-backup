@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1447762315 source:/media/grib2/Nouveau nom/projets/lazyfoo/texture/devoir 3 demo velo simu/main.cpp
+	<iostream>
+
+1447768425 source:/media/grib2/Nouveau nom/projets/lazyfoo/texture/devoir 3 demo velo simu/population.cc
+	<iostream>
+	<iomanip>
+	<cmath>
+

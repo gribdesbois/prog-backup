@@ -1,0 +1,32 @@
+
+        
+    
+.progress {
+    border: 1px solid black;
+    padding: 50px;
+    background: #00ffd5;
+    &__bar {
+        transform-origin: 0% 50%;
+       transform: scaleX(0);
+       transition: all 1000ms;
+    }
+}
+.btn2 {
+    @include btn;
+    //background: $cd-danger;
+    grid-area: btn;
+    &:hover + .progress {
+        transform: scaleX(1);
+}
+}
+/*    &:hover {
+        & + .progress {
+            & > .progress__bar {
+                    
+                transform: scaleX(1);
+            }
+        }
+    }
+}*/
+   
+    

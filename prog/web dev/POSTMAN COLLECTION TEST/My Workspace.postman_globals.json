@@ -1,0 +1,19 @@
+{
+	"id": "57f86d33-faac-401a-87e7-fda55e6a3bbb",
+	"values": [
+		{
+			"key": "url",
+			"value": "https://jsonplaceholder.typicode.com",
+			"enabled": true
+		},
+		{
+			"key": "myServer",
+			"value": "http://localhost:4200",
+			"enabled": true
+		}
+	],
+	"name": "My Workspace Globals",
+	"_postman_variable_scope": "globals",
+	"_postman_exported_at": "2021-05-02T07:38:39.391Z",
+	"_postman_exported_using": "Postman/7.36.5"
+}

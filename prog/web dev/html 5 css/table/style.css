@@ -1,0 +1,22 @@
+ table
+ {
+     border-collapse: collapse; /* The table borders will be stuck together, looking nicer */
+ }
+ 
+ 
+ td,th/* all table cells... */
+ {
+     border : 1px solid black; /* will have a 1px border */
+    
+ }
+ 
+ 
+ caption
+ {
+     caption-side:bottom;
+ }
+ 
+ th
+ {
+     background-color:red;
+ }

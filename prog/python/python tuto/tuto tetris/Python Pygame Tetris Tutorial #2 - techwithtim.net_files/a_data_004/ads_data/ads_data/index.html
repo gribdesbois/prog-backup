@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html><head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="ad.size" content="width=300,height=250">
+	<title>Sans titre</title>
+<!--Adobe Edge Runtime-->
+    <script src="index_data/index_edge.js"></script><script type="text/javascript" charset="utf-8" src="index_data/edge.js"></script>
+                  <script type="text/javascript">
+var clickTag = "http://www.google.com"; </script>
+    <style>
+        .edgeLoad-EDGE-99443363 { visibility:hidden; }
+    </style>
+<script>
+   AdobeEdge.loadComposition('index', 'EDGE-99443363', {
+    scaleToFit: "none",
+    centerStage: "none",
+    minW: "0px",
+    maxW: "undefined",
+    width: "300px",
+    height: "250px"
+}, {"dom":{}}, {"dom":{}});
+</script>
+<!--Adobe Edge Runtime End-->
+
+<script type="text/javascript">
+    
+  (function() {
+    var MAX_URL_PARAM_LENGTH = 34;
+    var CLICK_X_URL_KEY = 'nx';
+    var CLICK_Y_URL_KEY = 'ny';
+    var CREATIVE_DIMENSIONS_KEY = 'dim';
+    var AD_URL_PARAM = '&adurl=';
+
+    var relegateNavigation = '';
+    var urlParamMap = {};
+
+    urlParamMap[CLICK_X_URL_KEY] = null;
+    urlParamMap[CLICK_Y_URL_KEY] = null;
+    urlParamMap[CREATIVE_DIMENSIONS_KEY] = null;
+
+    var handleClickTagMessage = function(e) {
+      try {
+        var eventData = JSON.parse(e.data);
+      } catch (err) {
+        return;
+      }
+      if (eventData.isInitClickTag) {
+        if (eventData.clickTags) {
+          for (var i = 0; i < eventData.clickTags.length; i++) {
+            var clkTag = eventData.clickTags[i];
+            window[clkTag.name] = clkTag.url;
+          }
+        } else if (eventData.clickTag) {
+          window.clickTag = eventData.clickTag;
+        }
+        relegateNavigation = eventData.relegateNavigation;
+      }
+    };
+
+    var storeClickCoordinates = function(e) {
+      urlParamMap[CLICK_X_URL_KEY] = Math.round(e.clientX);
+      urlParamMap[CLICK_Y_URL_KEY] = Math.round(e.clientY);
+    };
+
+    var getCreativeDimensions = function() {
+      return window.innerWidth + 'x' + window.innerHeight;
+    }
+
+    var getExitClickParams = function(e) {
+      urlParamMap[CREATIVE_DIMENSIONS_KEY] = getCreativeDimensions();
+
+      var exitParams = '';
+      for (var key in urlParamMap) {
+        exitParams += '&' + key + '=';
+        if (urlParamMap[key] !== null) {
+          exitParams += urlParamMap[key];
+        }
+      }
+      return exitParams;
+    }
+
+    var appendExitClickParams = function(url) {
+      var adUrlIndex = url.toLowerCase().indexOf(AD_URL_PARAM);
+      var paramsToBeAdded = getExitClickParams();
+      if (adUrlIndex > -1 && paramsToBeAdded.length <= MAX_URL_PARAM_LENGTH) {
+        url = url.substr(0, adUrlIndex) + paramsToBeAdded +
+          url.substr(adUrlIndex);
+      };
+      return url;
+    };
+
+    if (open.call) {
+      window.open = function(open) {
+        return function(url, name, features) {
+          url = appendExitClickParams(url);
+          if (relegateNavigation === 'parent') {
+            var message = {'clickTag': url, 'isPostClickTag': true};
+            parent.postMessage(JSON.stringify(message), '*');
+          } else {
+            var args = [url, name];
+            if (features) {
+              args.push(features);
+            }
+            open.apply(window, args);
+          }
+        };
+      }(window.open);
+    }
+
+    if (window.addEventListener) {
+      window.addEventListener(
+          'message', handleClickTagMessage, false);
+      window.addEventListener('mousedown', storeClickCoordinates, true);
+    } else {
+      window.attachEvent('onmessage', handleClickTagMessage);
+    }
+  })();
+    
+  </script></head>
+<body style="margin:0;padding:0;">
+<a href="javascript:window.open(window.clickTag)">
+	<div id="Stage" class="EDGE-99443363" style="position: relative; height: 250px; width: 300px; z-index: 0; right: auto; bottom: auto; background-color: rgb(255, 255, 255); overflow: hidden; text-overflow: clip; background-size: 100% 100%;">
+	<div id="Stage_fond_jaune" style="position: absolute; margin: 0px; opacity: 1; inset: 0px auto auto 0px; width: 100%; height: 100%; background-image: url(&quot;images/fond_jaune.png&quot;); background-color: rgba(0, 0, 0, 0); background-repeat: no-repeat; background-size: 100% 100%; background-position: 0px 0px; transform-style: preserve-3d; transform: translate(151px) translateZ(0px) rotate(0deg) scale(1);" class="Stage_fond_jaune_id"></div><div id="Stage_fond_jaune2" style="position: absolute; margin: 0px; opacity: 1; inset: 0px auto auto 0px; width: 100%; height: 100%; background-image: url(&quot;images/fond_jaune.png&quot;); background-color: rgba(0, 0, 0, 0); background-repeat: no-repeat; background-size: 100% 100%; background-position: 0px 0px; transform-style: preserve-3d; transform: translate(-187px) translateZ(0px) rotate(180deg) scale(1);" class="Stage_fond_jaune2_id"></div><div id="Stage_troismots" style="position: absolute; margin: 0px; opacity: 0; inset: 0px auto auto 0px; width: 100%; height: 100%; background-image: url(&quot;images/troismots.png&quot;); background-color: rgba(0, 0, 0, 0); background-repeat: no-repeat; background-size: 100% 100%; background-position: 0px 0px; transform: translateZ(0px);" class="Stage_troismots_id"></div><div id="Stage_fond" style="position: absolute; margin: 0px; opacity: 0; inset: 0px auto auto 0px; width: 100%; height: 100%; background-color: rgb(0, 0, 0); background-size: 100% 100%; border-width: 0px; border-color: rgb(0, 0, 0); border-style: none; transform: translateZ(0px);" class="Stage_fond_id"></div><div id="Stage_flamme" style="position: absolute; margin: 0px; opacity: 0; inset: 0px auto auto 0px; width: 100%; height: 100%; background-image: url(&quot;images/flamme.png&quot;); background-color: rgba(0, 0, 0, 0); background-repeat: no-repeat; background-size: 100% 100%; display: block; background-position: 0px 0px; transform: translateZ(0px);" class="Stage_flamme_id"></div><div id="Stage_enilogo" style="position: absolute; margin: 0px; opacity: 0; inset: 0px auto auto 0px; width: 100%; height: 100%; background-image: url(&quot;images/enilogo.png&quot;); background-color: rgba(0, 0, 0, 0); background-repeat: no-repeat; background-size: 100% 100%; background-position: 0px 0px; transform: translateZ(0px);" class="Stage_enilogo_id"></div><div id="Stage_logo" style="position: absolute; margin: 0px; opacity: 1; inset: 0px auto auto 0px; width: 100%; height: 100%; background-image: url(&quot;images/logo.png&quot;); background-color: rgba(0, 0, 0, 0); background-repeat: no-repeat; background-size: 100% 100%; background-position: 0px 0px; transform-style: preserve-3d; transform: translate(0px, -23px) translateZ(0px) rotate(0deg) scale(1);" class="Stage_logo_id"></div><div id="Stage_text1" style="position: absolute; margin: 0px; opacity: 0; inset: 0px auto auto 0px; width: 100%; height: 100%; background-image: url(&quot;images/text1.png&quot;); background-color: rgba(0, 0, 0, 0); background-repeat: no-repeat; background-size: 100% 100%; background-position: 0px 0px; transform-style: preserve-3d; transform: translate(0px) translateZ(0px) rotate(0deg) scale(1);" class="Stage_text1_id"></div><div id="Stage_text2" style="position: absolute; margin: 0px; opacity: 0; inset: 0px auto auto 0px; width: 100%; height: 100%; background-image: url(&quot;images/text2.png&quot;); background-color: rgba(0, 0, 0, 0); background-repeat: no-repeat; background-size: 100% 100%; background-position: 0px 0px; transform-style: preserve-3d; transform: translate(0px) translateZ(0px) rotate(0deg) scale(1);" class="Stage_text2_id"></div><div id="Stage_mention" style="position: absolute; margin: 0px; inset: 0px auto auto 0px; width: 100%; height: 100%; background-image: url(&quot;images/mention.png&quot;); background-color: rgba(0, 0, 0, 0); background-repeat: no-repeat; background-size: 100% 100%; background-position: 0px 0px; transform: translateZ(0px); opacity: 0;" class="Stage_mention_id"></div><div id="Stage_mention1" style="position: absolute; margin: 0px; opacity: 0; inset: 0px auto auto 0px; width: 100%; height: 100%; background-image: url(&quot;images/mention1.png&quot;); background-color: rgba(0, 0, 0, 0); background-repeat: no-repeat; background-size: 100% 100%; background-position: 0px 0px; transform: translateZ(0px);" class="Stage_mention1_id"></div><div id="Stage_text3" style="position: absolute; margin: 0px; inset: 0px auto auto 0px; width: 100%; height: 100%; background-image: url(&quot;images/text3.png&quot;); background-color: rgba(0, 0, 0, 0); background-repeat: no-repeat; background-size: 100% 100%; background-position: 0px 0px; transform-style: preserve-3d; transform: translate(0px) translateZ(0px) rotate(0deg) scale(1); opacity: 0;" class="Stage_text3_id"></div><div id="Stage_text4" style="position: absolute; margin: 0px; inset: 0px auto auto 0px; width: 100%; height: 100%; background-image: url(&quot;images/text4.png&quot;); background-color: rgba(0, 0, 0, 0); background-repeat: no-repeat; background-size: 100% 100%; background-position: 0px 0px; transform-style: preserve-3d; transform: translate(0px) translateZ(0px) rotate(0deg) scale(1); opacity: 0;" class="Stage_text4_id"></div><div id="Stage_text5" style="position: absolute; margin: 0px; inset: 0px auto auto 0px; width: 100%; height: 100%; background-image: url(&quot;images/text5.png&quot;); background-color: rgba(0, 0, 0, 0); background-repeat: no-repeat; background-size: 100% 100%; background-position: 0px 0px; transform-style: preserve-3d; transform: translate(0px) translateZ(0px) rotate(0deg) scale(1); opacity: 0;" class="Stage_text5_id"></div><div id="Stage_mention2" style="position: absolute; margin: 0px; inset: 0px auto auto 0px; width: 100%; height: 100%; background-image: url(&quot;images/mention2.png&quot;); background-color: rgba(0, 0, 0, 0); background-repeat: no-repeat; background-size: 100% 100%; background-position: 0px 0px; transform: translateZ(0px); opacity: 0;" class="Stage_mention2_id"></div><div id="Stage_text6" style="position: absolute; margin: 0px; inset: 0px auto auto 0px; width: 100%; height: 100%; background-image: url(&quot;images/text6.png&quot;); background-color: rgba(0, 0, 0, 0); background-repeat: no-repeat; background-size: 100% 100%; background-position: 0px 0px; transform-style: preserve-3d; transform: translate(0px) translateZ(0px) rotate(0deg) scale(1); opacity: 0;" class="Stage_text6_id"></div><div id="Stage_text7" style="position: absolute; margin: 0px; inset: 0px auto auto 0px; width: 100%; height: 100%; background-image: url(&quot;images/text7.png&quot;); background-color: rgba(0, 0, 0, 0); background-repeat: no-repeat; background-size: 100% 100%; background-position: 0px 0px; transform-style: preserve-3d; transform: translate(0px) translateZ(0px) rotate(0deg) scale(1); opacity: 0;" class="Stage_text7_id"></div><div id="Stage_text8" style="position: absolute; margin: 0px; inset: 0px auto auto 0px; width: 100%; height: 100%; background-image: url(&quot;images/text8.png&quot;); background-color: rgba(0, 0, 0, 0); background-repeat: no-repeat; background-size: 100% 100%; background-position: 0px 0px; transform-style: preserve-3d; transform: translate(0px) translateZ(0px) rotate(0deg) scale(1); opacity: 0;" class="Stage_text8_id"></div><div id="Stage_baseline" style="position: absolute; margin: 0px; inset: 0px auto auto 0px; width: 100%; height: 100%; background-image: url(&quot;images/baseline.png&quot;); background-color: rgba(0, 0, 0, 0); background-repeat: no-repeat; background-size: 100% 100%; background-position: 0px 0px; transform: translateZ(0px); opacity: 1;" class="Stage_baseline_id"></div><div id="Stage_pack" style="position: absolute; margin: 0px; inset: 0px auto auto 0px; width: 100%; height: 100%; background-image: url(&quot;images/pack.png&quot;); background-color: rgba(0, 0, 0, 0); background-repeat: no-repeat; background-size: 100% 100%; background-position: 0px 0px; transform-style: preserve-3d; transform: translate(0px) translateZ(0px) rotate(0deg) scale(1);" class="Stage_pack_id"></div><div id="Stage_ctg" style="position: absolute; margin: 0px; opacity: 1; inset: 0px auto auto 0px; width: 100%; height: 100%; background-image: url(&quot;images/ctg.png&quot;); background-color: rgba(0, 0, 0, 0); background-repeat: no-repeat; background-size: 100% 100%; background-position: 0px 0px; transform-style: preserve-3d; transform: translate(0px) translateZ(0px) rotate(0deg) scale(1);" class="Stage_ctg_id"></div><div id="Stage_mention3" style="position: absolute; margin: 0px; inset: 0px auto auto 0px; width: 300px; height: 250px; background-image: url(&quot;images/mention3.png&quot;); background-color: rgba(0, 0, 0, 0); background-repeat: no-repeat; background-size: 100% 100%; background-position: 0px 0px; transform: translateZ(0px); opacity: 1;" class="Stage_mention3_id"></div><div id="Stage_tel" style="position: absolute; margin: 0px; inset: 0px auto auto 0px; width: 300px; height: 250px; background-image: url(&quot;images/tel.png&quot;); background-color: rgba(0, 0, 0, 0); background-repeat: no-repeat; background-size: 100% 100%; background-position: 0px 0px; transform-style: preserve-3d; transform: translate(0px) translateZ(0px) rotate(0deg) scale(1);" class="Stage_tel_id"></div><div id="Stage_text9" style="position: absolute; margin: 0px; inset: 0px auto auto 0px; width: 300px; height: 250px; background-image: url(&quot;images/text9.png&quot;); background-color: rgba(0, 0, 0, 0); background-repeat: no-repeat; background-size: 100% 100%; background-position: 0px 0px; transform-style: preserve-3d; transform: translate(0px) translateZ(0px) rotate(0deg) scale(1);" class="Stage_text9_id"></div><div id="Stage_Rectangle2" style="position: absolute; margin: 0px; inset: 0px auto auto 0px; width: 298px; height: 248px; background-color: rgba(246, 206, 25, 0); background-size: 100% 100%; border-width: 1px; border-color: rgb(0, 0, 0); border-style: solid; transform: translateZ(0px);" class="Stage_Rectangle2_id"></div></div></a>
+
+</body></html>

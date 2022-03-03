@@ -1,0 +1,81 @@
+{
+	"info": {
+		"_postman_id": "2ee0e7bf-cf81-4b2e-b96f-6ccae1119389",
+		"name": "Postman Test Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://jsonplaceholder.typicode.com/users",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Check if user with id1 is Leanne Graham\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData[0].name).to.eql(\"Leanne Graham\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"id\": 11,\n        \"name\": \"Grib Des Bouillours\",\n        \"username\": \"Bret\",\n        \"email\": \"Sincere@april.biz\",\n        \"address\": {\n            \"street\": \"Kulas Light\",\n            \"suite\": \"Apt. 556\",\n            \"city\": \"Gwenborough\",\n            \"zipcode\": \"92998-3874\",\n            \"geo\": {\n                \"lat\": \"-37.3159\",\n                \"lng\": \"81.1496\"\n            }\n        },\n        \"phone\": \"1-770-736-8031 x56442\",\n        \"website\": \"hildegard.org\",\n        \"company\": {\n            \"name\": \"Romaguera-Crona\",\n            \"catchPhrase\": \"Multi-layered client-server neural-net\",\n            \"bs\": \"harness real-time e-markets\"\n        }\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/users",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://jsonplaceholder.typicode.com/users",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"id\": 11,\n        \"name\": \"Grib Des Bouillours\",\n        \"username\": \"Bret\",\n        \"email\": \"Sincere@april.biz\",\n        \"address\": {\n            \"street\": \"Kulas Light\",\n            \"suite\": \"Apt. 556\",\n            \"city\": \"Gwenborough\",\n            \"zipcode\": \"92998-3874\",\n            \"geo\": {\n                \"lat\": \"-37.3159\",\n                \"lng\": \"81.1496\"\n            }\n        },\n        \"phone\": \"1-770-736-8031 x56442\",\n        \"website\": \"hildegard.org\",\n        \"company\": {\n            \"name\": \"Romaguera-Crona\",\n            \"catchPhrase\": \"Multi-layered client-server neural-net\",\n            \"bs\": \"harness real-time e-markets\"\n        }\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/users",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

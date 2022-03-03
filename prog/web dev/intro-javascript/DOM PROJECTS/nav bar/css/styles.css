@@ -1,0 +1,18 @@
+.social-icons {
+  display: none; }
+
+.links {
+  list-style-type: none;
+  height: auto;
+  display: flex;
+  transition: var(--transition); }
+
+.show-links {
+  height: 10 em; }
+
+@media screen and (min-width: 800 px) {
+  .nav-center {
+    max-width: 1170 px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center; } }

@@ -1,0 +1,1 @@
+/usr/bin/c++   -g   CMakeFiles/tuto_struct_pointeurs.dir/main.cpp.o  -o tuto_struct_pointeurs -rdynamic 

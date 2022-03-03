@@ -1,0 +1,4 @@
+[Project]
+Name=cplex_test
+Manager=KDevCMakeManager
+VersionControl=

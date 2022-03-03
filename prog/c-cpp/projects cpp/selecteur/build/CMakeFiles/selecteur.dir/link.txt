@@ -1,0 +1,1 @@
+/usr/bin/c++   -g   CMakeFiles/selecteur.dir/main.cpp.o  -o selecteur -rdynamic 

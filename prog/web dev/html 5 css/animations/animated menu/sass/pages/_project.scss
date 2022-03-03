@@ -1,0 +1,109 @@
+.project {
+    width: 100%;
+    margin-bottom: $grid-gutter*1.2;
+    display: grid;
+    grid-template-columns: 5fr 3fr;
+    grid-template-rows: repeat(3, auto);
+    grid-gap: $grid-gutter;
+    grid-template-areas: 
+        "image synopsis"
+        "tags synopsis"
+        "btn btn";
+    @include mobile-only {
+            opacity: 0.2;
+            display: block;
+    }
+    &__image {
+        grid-area: image;
+        @include img-ratio;
+        
+        
+    }
+    &__synopsis {
+        grid-area: synopsis;
+        padding-left: $grid-gutter;
+        & h1 {
+            color: $colour-white;
+            @include heading-shadow;
+        }
+        & p {
+            line-height: 2rem*1.25;
+        }
+    }
+    &__tags {
+        grid-area: tags;
+        & p {
+            color: $colour-white;
+            & strong {
+                color: $colour-primary;
+                font-weight: 900;
+                font-style: italic;
+            }
+        }
+    }
+    &__btn {
+        @include btn;
+        grid-area: btn;
+        
+    }
+
+}
+.menu {
+    min-width: 33vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem;
+    background:$cd-mint;
+    overflow: hidden;
+    transform-origin: top left;
+    position: relative;
+    animation: menu 661ms both;
+    z-index: -10;
+    &__open-accent--1{
+        @include menu__open-accent(450ms, 275ms);
+    }
+    &__open-accent--2 {
+            @include menu__open-accent(450ms, 150ms);
+            background: $cd-navy;
+            z-index: -2;
+    }
+    &__item {
+        padding: .75rem;
+        margin: .25rem;
+        background: #fff;
+        animation: menu__item 810ms cubic-bezier(.1,.9,.1,1) both;
+        position: relative;
+        &-accent {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: .25rem;
+            background-color: $cd-mint;
+            animation: menu__accent 400ms both;
+            &--active {
+                background-color: $cd-navy
+            }
+        }
+        &--1 {
+            animation-delay: 475ms;
+            > div {
+                animation-delay: 712ms;
+            }
+        }
+        &--2 {
+            animation-delay: 546ms;
+            > div {
+                animation-delay: 805ms;
+            }
+        }
+        &--3 {
+            animation-delay: 632ms;
+            > div {
+                animation-delay: 914ms;
+            }
+        }
+    }
+}

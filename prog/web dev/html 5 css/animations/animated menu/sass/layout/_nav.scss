@@ -1,0 +1,32 @@
+.nav {
+    padding-right: $layout-margin;
+    flex: 2 1 auto;
+    text-align: right;
+    @include mobile-only {
+        flex-direction: column ;
+        text-align: left;        
+    }
+    &__link {
+        display: inline;
+        font-size: 5rem;
+        padding-left: 1.5rem;
+        @include mobile-only {
+            display: block;
+            font-size: 1 rem;
+        }
+        & a{
+        text-decoration: none;
+        color: $colour-accent;
+        }
+        &--active {
+            color: $colour-secondary;
+            &:hover{
+                cursor:default;
+                color: $colour-secondary;
+            }
+        }
+        & a:hover{
+            color: $colour-white;
+        }
+    }
+}

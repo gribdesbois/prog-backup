@@ -1,0 +1,16 @@
+body {
+  background: white; }
+
+#main {
+  background: #eeeeee; }
+  #main #img_wrapper {
+    margin: auto; }
+
+/*
+#img_wrapper {
+    //background-color: $color;
+    padding: .2rem;
+    margin-left:auto;
+    margin-right:auto;
+    position: center;
+}*/

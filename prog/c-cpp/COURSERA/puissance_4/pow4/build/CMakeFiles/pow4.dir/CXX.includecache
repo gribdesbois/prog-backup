@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/media/grib2/Nouveau nom/prog/projets/COURSERA/puissance_4/pow4/main.cpp
+iostream
+-
+vector
+-
+
